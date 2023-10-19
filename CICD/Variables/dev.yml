@@ -1,0 +1,15 @@
+variables:
+  #Add variables here when they are unique per environment and needed in steps added to the pipeline by the `LocalPreTFYAML` or `LocalReleaseYAML` pipeline parameters
+  #More information: 
+  #https://dev.azure.com/SempraUtilities/SempraUtilities/_wiki/wikis/SempraUtilities.wiki/3583/LocalReleaseYAML
+  - name: environment
+    value: dev
+  - name: SCName
+    value: pam-scgmaci-dev@wslescgmad011
+  - name: Uid
+    value: scgmafe2
+  - name: Machines
+    value: wslescgmad011,wslescgmad012
+  #Replace the below  with the value of the adoRepoName variable (Not the variable itself! It wont work!) and the environment name at the end
+  #For example, if adoRepoName is `shared-it-devsecops` and environment is `dev` this value is `shared-it-devsecops-dev`
+  - group: mass-shared-web-components-dev

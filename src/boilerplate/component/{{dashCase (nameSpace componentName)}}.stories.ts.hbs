@@ -1,0 +1,19 @@
+import type { Meta, StoryObj } from '@storybook/web-components';
+
+type Story = StoryObj;
+
+const meta: Meta = {
+  component: '{{dashCase (nameSpace componentName)}}', 
+};
+
+const defaultArgs = {
+  
+}
+
+export default meta;
+
+export const FirstStory: Story = {
+  args: {
+    ...defaultArgs,
+  }
+}

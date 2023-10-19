@@ -1,0 +1,96 @@
+parameters:
+  - name: Environment
+    type: string
+  - name: TimeoutInMinutes
+    type: string
+  - name: CanaryMode
+    type: boolean
+  - name: AssignmentGroup
+    type: string
+  - name: ChangeWindow
+    type: string
+  - name: BusinessHourJustification
+    type: string
+  - name: ChangeReason
+    type: string
+  - name: ReleaseComments
+    type: string
+  - name: CIName
+    type: string
+  - name: EnableSnow
+    type: boolean
+
+jobs:
+  - job: UpdateInstances
+    variables:
+      - template: ../../Variables/${{ parameters.Environment }}.yml
+    steps:
+      - download: current
+        artifact: build
+      - task: SSH@0
+        displayName: 'Create temp directories'
+        inputs:
+          sshEndpoint: ${{ variables.SCName }}
+          runOptions: inline
+          inline: |
+            sudo su - ${{ variables.Uid}} -c 'mkdir -p /app/${{ variables.Uid }}/tmp'
+            sudo su - ${{ variables.Uid}} -c 'chmod 777 /app/${{ variables.Uid }}/tmp'
+      - task: CopyFilesOverSSH@0
+        displayName: Copy Artifacts
+        inputs:
+          sshEndpoint: ${{ variables.SCName }}
+          sourceFolder: '$(Pipeline.Workspace)/build/'
+          contents: |
+            documentation.tar.gz
+            storybook.tar.gz
+          targetFolder: /app/${{ variables.Uid }}/tmp
+      - task: CopyFilesOverSSH@0
+        displayName: Copy Deploy Script
+        inputs:
+          sshEndpoint: ${{ variables.SCName }}
+          sourceFolder: '$(Pipeline.Workspace)/s/pipeline/scripts/'
+          contents: |
+            ado_release.bash
+          targetFolder: /app/${{ variables.Uid }}/tmp
+      - task: SSH@0
+        displayName: Extract Artifacts
+        inputs:
+          sshEndpoint: ${{ variables.SCName }}
+          runOptions: inline
+          inline: |
+            sudo su - ${{ variables.Uid }} -c 'rm -rf /app/${{ variables.Uid }}/tmp/storybook && mkdir -p /app/${{ variables.Uid }}/tmp/storybook && tar -xvf /app/${{ variables.Uid }}/tmp/storybook.tar.gz -C /app/${{ variables.Uid }}/tmp/storybook'
+            sudo su - ${{ variables.Uid }} -c 'rm -rf /app/${{ variables.Uid }}/tmp/documentation && mkdir -p /app/${{ variables.Uid }}/tmp/documentation && tar -xvf /app/${{ variables.Uid }}/tmp/documentation.tar.gz -C /app/${{ variables.Uid }}/tmp/documentation'
+      - task: SSH@0
+        displayName: Run Deploy Script
+        inputs:
+          sshEndpoint: ${{ variables.SCName }}
+          runOptions: inline
+          inline: |
+            sudo su - ${{ variables.Uid }} -c 'export MACHINES=${{ variables.Machines }} && export USER_ID=${{ variables.Uid }} && bash /app/${{ variables.Uid }}/tmp/ado_release.bash'
+  - job: PublishNpmArtifact
+    dependsOn: UpdateInstances
+    condition: eq('${{ parameters.Environment }}', 'qa')
+    variables:
+      - template: ../../Variables/${{ parameters.Environment }}.yml
+    steps:
+      - task: NodeTool@0
+        displayName: 'Install Node.js'
+        inputs:
+          versionSpec: '18.x'
+      - task: Npm@1
+        displayName: 'npm ci'
+        inputs:
+          command: custom
+          customCommand: 'ci'
+          verbose: false
+      - task: Npm@1
+        displayName: 'npm run build-all'
+        inputs:
+          command: 'custom'
+          customCommand: 'run build-all'
+      - task: Npm@1
+        displayName: 'npm publish'
+        inputs:
+          command: 'publish'
+          publishRegistry: 'useFeed'
+          publishFeed: Massive-networks/mass-web-components

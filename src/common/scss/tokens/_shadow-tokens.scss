@@ -1,0 +1,27 @@
+
+/**
+ * Do not edit directly
+ * Generated on Fri, 22 Sep 2023 14:49:05 GMT
+ */
+
+$effect-elevation-small: 0 1 0 0 #0000001f !default;
+$effect-elevation-medium: 0 4 0 4 #0000001a !default;
+$effect-elevation-large: 0 8 0 8 #0000001f !default;
+$effect-elevation-dropdown-0: 0 4 0 -4 #00000014 !default;
+$effect-elevation-dropdown-1: 0 8 0 1 #00000014 !default;
+$effect-elevation-dropdown-2: 0 4 0 2 #00000014 !default;
+
+$tokens: (
+  'effect': (
+    'elevation': (
+      'small': $effect-elevation-small,
+      'medium': $effect-elevation-medium,
+      'large': $effect-elevation-large,
+      'dropdown': (
+        '0': $effect-elevation-dropdown-0,
+        '1': $effect-elevation-dropdown-1,
+        '2': $effect-elevation-dropdown-2
+      )
+    )
+  )
+);

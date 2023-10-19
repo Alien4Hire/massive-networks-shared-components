@@ -1,0 +1,22 @@
+parameters:
+  - name: Environment
+    default: Dev
+  - name: VariableLocation
+    default: 
+  - name: TimeoutInMinutes
+    type: string
+    default: 60
+
+stages:
+- stage: pr_validation_${{ parameters.Environment }}
+  dependsOn: Build
+  displayName: "PR Validation - ${{ parameters.Environment }}"
+  variables:
+    #import variables for deployment environment
+    - template: ${{ parameters.VariableLocation }}/${{ parameters.Environment }}.yml@self
+  jobs:
+  #Check TF Plan for changes
+  - template: ../Jobs/Deploy.yml@self
+    parameters:
+      Environment: ${{ parameters.Environment }}
+      TimeoutInMinutes: ${{ parameters.TimeoutInMinutes }}

@@ -1,0 +1,39 @@
+{
+  "source": [".design-tokens/**/*.tokens.json"],
+  "platforms": {
+    "scss": {
+      "transforms": [
+        "attribute/cti",
+        "name/cti/kebab",
+        "time/seconds",
+        "content/icon",
+        "color/css",
+        "clamp/css",
+        "shadow/css",
+        "size/pxToRem"
+      ],
+      "buildPath": "src/common/scss/tokens/",
+      "files": [
+        {
+          "destination": "_all-tokens.scss",
+          "format": "scss/map-deep"
+        },
+        {
+          "filter": "isColor",
+          "destination": "_color-tokens.scss",
+          "format": "scss/map-deep"
+        },
+        {
+          "filter": "isShadow",
+          "destination": "_shadow-tokens.scss",
+          "format": "scss/map-deep"
+        },
+        {
+          "filter": "isTypography",
+          "destination": "_typography-tokens.scss",
+          "format": "scss/map-deep"
+        }
+      ]
+    }
+  }
+}

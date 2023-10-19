@@ -1,0 +1,921 @@
+
+/**
+ * Do not edit directly
+ * Generated on Fri, 22 Sep 2023 14:49:05 GMT
+ */
+
+$gradient-gradients-haze: #e0f0ffff 5%, #ebf0ffff 47%, #fbfdffff 100% !default; // Backgrounds
+$gradient-gradients-price-card-gradient: #e7f0feff, #d7eafeff 45%, #e1f6fdff 72%, #ecf9feff 100% !default;
+$gradient-gradients-main: #1745e9ff, #6bccf6ff 51%, #caf9ffff 97% !default;
+$gradient-gradients-main-2: #ffffffff 9%, #c1cfffff 45%, #aee7ffff 70%, #e5fff1ff 97% !default;
+$gradient-gradients-purple: #ffffffff 9%, #c1cfffff 45%, #dbd6ffff 70%, #ebe3ffff 97% !default;
+$gradient-gradients-green: #ffffffff 9%, #99d1daff 45%, #aefaffff 70%, #dafbfeff 97% !default;
+$gradient-gradients-red: #ffffffff 9%, #ffc1c1ff 45%, #ffdfaeff 70%, #fff8e5ff 97% !default;
+$gradient-gradients-red-to-green: #ffffffff 9%, #c1fffbff 45%, #ffd0d0ff 97% !default;
+$gradient-gradients-orange-to-teal: #ffffffff 9%, #c1f0ffff 45%, #ffd6beff 97% !default;
+$gradient-gradients-orange-to-blue: #ffffffff 9%, #c1e5ffff 45%, #ffe1beff 97% !default;
+$gradient-gradients-orange-to-purple: #ffffffff 9%, #c1cfffff 45%, #ffe1c6ff 97% !default;
+$gradient-gradients-yellow-to-purple: #ffffffff 9%, #d0d5ffff 45%, #fffce3ff 97% !default;
+$gradient-gradients-archive: #b0d0ff4d, #98e6ff00 100% !default; // Selected
+$color-neutral-10: #e0e6e9 !default;
+$color-neutral-20: #ced3d4 !default;
+$color-neutral-60: #666666 !default; // AA Accessibility (4.5)
+$color-neutral-70: #595a5b !default;
+$color-neutral-80: #434344 !default;
+$color-neutral-90: #2c2d2e !default;
+$color-neutral-100: #282932 !default;
+$color-neutral-00-white: #ffffff !default;
+$color-neutral-red-20: #E25050 !default;
+$color-neutral-purple-20: #DE43DE !default;
+$color-neutral-blue-20: #37DEC5 !default;
+$color-neutral-red-10: #DE4E4E !default;
+$color-neutral-green-20: #8EDE64 !default;
+$color-neutral-05: #f1f3f5 !default;
+$color-neutral-100-black: #000000 !default;
+$color-primary-20: #ebf0ff !default;
+$color-primary-30: #5678f1 !default;
+$color-primary-40: #3258d2 !default;
+$color-primary-50: #11329e !default;
+$color-primary-60: #001a70 !default;
+$color-semantic-warning-01: #ffecab !default;
+$color-semantic-warning-02: #f6c955 !default;
+$color-semantic-warning-03: #eea311 !default;
+$color-semantic-negative-01: #ffdfd1 !default;
+$color-semantic-negative-02: #ff6d4d !default;
+$color-semantic-negative-03: #d24509 !default;
+$color-semantic-positive-01: #d2f4e8 !default;
+$color-semantic-positive-02: #80d6ad !default;
+$color-semantic-positive-03: #17a874 !default;
+$color-neutral-transparent-black-20: rgba(0, 0, 0, 0.2) !default;
+$color-neutral-transparent-black-10: rgba(0, 0, 0, 0.1) !default;
+$color-neutral-transparent-white-20: rgba(255, 255, 255, 0.2) !default;
+$color-neutral-transparent-white-10: rgba(255, 255, 255, 0.1) !default;
+$grid-large-left-rail-0: [object Object] !default;
+$grid-large-left-rail-1: [object Object] !default;
+$grid-large-left-rail-2: [object Object] !default;
+$grid-large-full-width-0: [object Object] !default;
+$grid-large-full-width-1: [object Object] !default;
+$grid-medium-1297px-0: [object Object] !default;
+$grid-medium-1297px-1: [object Object] !default;
+$grid-mobile-grid-0: [object Object] !default;
+$grid-mobile-grid-1: [object Object] !default;
+$font-display-72: [object Object] !default;
+$font-display-96: [object Object] !default;
+$font-display-120: [object Object] !default;
+$font-display-160: [object Object] !default;
+$font-heading-16: [object Object] !default;
+$font-heading-20: [object Object] !default;
+$font-heading-24: [object Object] !default;
+$font-heading-32: [object Object] !default;
+$font-heading-40: [object Object] !default;
+$font-heading-48: [object Object] !default;
+$font-body-12: [object Object] !default;
+$font-body-14: [object Object] !default;
+$font-body-16: [object Object] !default;
+$font-body-24: [object Object] !default;
+$font-body-24-semibold: [object Object] !default;
+$font-body-24-underlined: [object Object] !default;
+$font-body-16-semibold: [object Object] !default;
+$font-body-16-underlined: [object Object] !default;
+$font-body-14-semibold: [object Object] !default;
+$font-body-14-underlined: [object Object] !default;
+$font-body-12-semibold: [object Object] !default;
+$font-body-12-underlined: [object Object] !default;
+$font-numbers-24: [object Object] !default;
+$font-numbers-40: [object Object] !default;
+$font-numbers-72: [object Object] !default;
+$font-numbers-160: [object Object] !default;
+$effect-elevation-small: 0 1 0 0 #0000001f !default;
+$effect-elevation-medium: 0 4 0 4 #0000001a !default;
+$effect-elevation-large: 0 8 0 8 #0000001f !default;
+$effect-elevation-dropdown-0: 0 4 0 -4 #00000014 !default;
+$effect-elevation-dropdown-1: 0 8 0 1 #00000014 !default;
+$effect-elevation-dropdown-2: 0 4 0 2 #00000014 !default;
+$typography-display-72-font-size: 72 !default;
+$typography-display-72-text-decoration: none !default;
+$typography-display-72-font-family: Montserrat !default;
+$typography-display-72-font-weight: 500 !default;
+$typography-display-72-font-style: normal !default;
+$typography-display-72-font-stretch: normal !default;
+$typography-display-72-letter-spacing: -2.16 !default;
+$typography-display-72-line-height: 72 !default;
+$typography-display-72-paragraph-indent: 0 !default;
+$typography-display-72-paragraph-spacing: 0 !default;
+$typography-display-72-text-case: none !default;
+$typography-display-96-font-size: 96 !default;
+$typography-display-96-text-decoration: none !default;
+$typography-display-96-font-family: Montserrat !default;
+$typography-display-96-font-weight: 500 !default;
+$typography-display-96-font-style: normal !default;
+$typography-display-96-font-stretch: normal !default;
+$typography-display-96-letter-spacing: -2.88 !default;
+$typography-display-96-line-height: 96 !default;
+$typography-display-96-paragraph-indent: 0 !default;
+$typography-display-96-paragraph-spacing: 0 !default;
+$typography-display-96-text-case: none !default;
+$typography-display-120-font-size: 120 !default;
+$typography-display-120-text-decoration: none !default;
+$typography-display-120-font-family: Montserrat !default;
+$typography-display-120-font-weight: 500 !default;
+$typography-display-120-font-style: normal !default;
+$typography-display-120-font-stretch: normal !default;
+$typography-display-120-letter-spacing: -3.6 !default;
+$typography-display-120-line-height: 120 !default;
+$typography-display-120-paragraph-indent: 0 !default;
+$typography-display-120-paragraph-spacing: 0 !default;
+$typography-display-120-text-case: none !default;
+$typography-display-160-font-size: 160 !default;
+$typography-display-160-text-decoration: none !default;
+$typography-display-160-font-family: Montserrat !default;
+$typography-display-160-font-weight: 500 !default;
+$typography-display-160-font-style: normal !default;
+$typography-display-160-font-stretch: normal !default;
+$typography-display-160-letter-spacing: -8 !default;
+$typography-display-160-line-height: 152 !default;
+$typography-display-160-paragraph-indent: 0 !default;
+$typography-display-160-paragraph-spacing: 0 !default;
+$typography-display-160-text-case: none !default;
+$typography-heading-16-font-size: 16 !default;
+$typography-heading-16-text-decoration: none !default;
+$typography-heading-16-font-family: Montserrat !default;
+$typography-heading-16-font-weight: 500 !default;
+$typography-heading-16-font-style: normal !default;
+$typography-heading-16-font-stretch: normal !default;
+$typography-heading-16-letter-spacing: 0 !default;
+$typography-heading-16-line-height: 24 !default;
+$typography-heading-16-paragraph-indent: 0 !default;
+$typography-heading-16-paragraph-spacing: 0 !default;
+$typography-heading-16-text-case: none !default;
+$typography-heading-20-font-size: 20 !default;
+$typography-heading-20-text-decoration: none !default;
+$typography-heading-20-font-family: Montserrat !default;
+$typography-heading-20-font-weight: 500 !default;
+$typography-heading-20-font-style: normal !default;
+$typography-heading-20-font-stretch: normal !default;
+$typography-heading-20-letter-spacing: 0 !default;
+$typography-heading-20-line-height: 28 !default;
+$typography-heading-20-paragraph-indent: 0 !default;
+$typography-heading-20-paragraph-spacing: 0 !default;
+$typography-heading-20-text-case: none !default;
+$typography-heading-24-font-size: 24 !default;
+$typography-heading-24-text-decoration: none !default;
+$typography-heading-24-font-family: Montserrat !default;
+$typography-heading-24-font-weight: 500 !default;
+$typography-heading-24-font-style: normal !default;
+$typography-heading-24-font-stretch: normal !default;
+$typography-heading-24-letter-spacing: 0 !default;
+$typography-heading-24-line-height: 32 !default;
+$typography-heading-24-paragraph-indent: 0 !default;
+$typography-heading-24-paragraph-spacing: 0 !default;
+$typography-heading-24-text-case: none !default;
+$typography-heading-32-font-size: 32 !default;
+$typography-heading-32-text-decoration: none !default;
+$typography-heading-32-font-family: Montserrat !default;
+$typography-heading-32-font-weight: 500 !default;
+$typography-heading-32-font-style: normal !default;
+$typography-heading-32-font-stretch: normal !default;
+$typography-heading-32-letter-spacing: -0.64 !default;
+$typography-heading-32-line-height: 40 !default;
+$typography-heading-32-paragraph-indent: 0 !default;
+$typography-heading-32-paragraph-spacing: 0 !default;
+$typography-heading-32-text-case: none !default;
+$typography-heading-40-font-size: 40 !default;
+$typography-heading-40-text-decoration: none !default;
+$typography-heading-40-font-family: Montserrat !default;
+$typography-heading-40-font-weight: 500 !default;
+$typography-heading-40-font-style: normal !default;
+$typography-heading-40-font-stretch: normal !default;
+$typography-heading-40-letter-spacing: -0.8 !default;
+$typography-heading-40-line-height: 48 !default;
+$typography-heading-40-paragraph-indent: 0 !default;
+$typography-heading-40-paragraph-spacing: 0 !default;
+$typography-heading-40-text-case: none !default;
+$typography-heading-48-font-size: 48 !default;
+$typography-heading-48-text-decoration: none !default;
+$typography-heading-48-font-family: Montserrat !default;
+$typography-heading-48-font-weight: 500 !default;
+$typography-heading-48-font-style: normal !default;
+$typography-heading-48-font-stretch: normal !default;
+$typography-heading-48-letter-spacing: -0.96 !default;
+$typography-heading-48-line-height: 56 !default;
+$typography-heading-48-paragraph-indent: 0 !default;
+$typography-heading-48-paragraph-spacing: 0 !default;
+$typography-heading-48-text-case: none !default;
+$typography-body-12-font-size: 12 !default;
+$typography-body-12-text-decoration: none !default;
+$typography-body-12-font-family: Public Sans !default;
+$typography-body-12-font-weight: 400 !default;
+$typography-body-12-font-style: normal !default;
+$typography-body-12-font-stretch: normal !default;
+$typography-body-12-letter-spacing: 0 !default;
+$typography-body-12-line-height: 18 !default;
+$typography-body-12-paragraph-indent: 0 !default;
+$typography-body-12-paragraph-spacing: 8 !default;
+$typography-body-12-text-case: none !default;
+$typography-body-14-font-size: 14 !default;
+$typography-body-14-text-decoration: none !default;
+$typography-body-14-font-family: Public Sans !default;
+$typography-body-14-font-weight: 400 !default;
+$typography-body-14-font-style: normal !default;
+$typography-body-14-font-stretch: normal !default;
+$typography-body-14-letter-spacing: 0 !default;
+$typography-body-14-line-height: 20 !default;
+$typography-body-14-paragraph-indent: 0 !default;
+$typography-body-14-paragraph-spacing: 16 !default;
+$typography-body-14-text-case: none !default;
+$typography-body-16-font-size: 16 !default;
+$typography-body-16-text-decoration: none !default;
+$typography-body-16-font-family: Public Sans !default;
+$typography-body-16-font-weight: 400 !default;
+$typography-body-16-font-style: normal !default;
+$typography-body-16-font-stretch: normal !default;
+$typography-body-16-letter-spacing: 0 !default;
+$typography-body-16-line-height: 24 !default;
+$typography-body-16-paragraph-indent: 0 !default;
+$typography-body-16-paragraph-spacing: 16 !default;
+$typography-body-16-text-case: none !default;
+$typography-body-24-font-size: 24 !default;
+$typography-body-24-text-decoration: none !default;
+$typography-body-24-font-family: Public Sans !default;
+$typography-body-24-font-weight: 400 !default;
+$typography-body-24-font-style: normal !default;
+$typography-body-24-font-stretch: normal !default;
+$typography-body-24-letter-spacing: 0 !default;
+$typography-body-24-line-height: 32 !default;
+$typography-body-24-paragraph-indent: 0 !default;
+$typography-body-24-paragraph-spacing: 24 !default;
+$typography-body-24-text-case: none !default;
+$typography-body-24-semibold-font-size: 24 !default;
+$typography-body-24-semibold-text-decoration: none !default;
+$typography-body-24-semibold-font-family: Public Sans !default;
+$typography-body-24-semibold-font-weight: 600 !default;
+$typography-body-24-semibold-font-style: normal !default;
+$typography-body-24-semibold-font-stretch: normal !default;
+$typography-body-24-semibold-letter-spacing: 0.25 !default;
+$typography-body-24-semibold-line-height: 32 !default;
+$typography-body-24-semibold-paragraph-indent: 0 !default;
+$typography-body-24-semibold-paragraph-spacing: 24 !default;
+$typography-body-24-semibold-text-case: none !default;
+$typography-body-24-underlined-font-size: 24 !default;
+$typography-body-24-underlined-text-decoration: underline !default;
+$typography-body-24-underlined-font-family: Public Sans !default;
+$typography-body-24-underlined-font-weight: 400 !default;
+$typography-body-24-underlined-font-style: normal !default;
+$typography-body-24-underlined-font-stretch: normal !default;
+$typography-body-24-underlined-letter-spacing: 0 !default;
+$typography-body-24-underlined-line-height: 32 !default;
+$typography-body-24-underlined-paragraph-indent: 0 !default;
+$typography-body-24-underlined-paragraph-spacing: 24 !default;
+$typography-body-24-underlined-text-case: none !default;
+$typography-body-16-semibold-font-size: 16 !default;
+$typography-body-16-semibold-text-decoration: none !default;
+$typography-body-16-semibold-font-family: Public Sans !default;
+$typography-body-16-semibold-font-weight: 600 !default;
+$typography-body-16-semibold-font-style: normal !default;
+$typography-body-16-semibold-font-stretch: normal !default;
+$typography-body-16-semibold-letter-spacing: 0.25 !default;
+$typography-body-16-semibold-line-height: 24 !default;
+$typography-body-16-semibold-paragraph-indent: 0 !default;
+$typography-body-16-semibold-paragraph-spacing: 16 !default;
+$typography-body-16-semibold-text-case: none !default;
+$typography-body-16-underlined-font-size: 16 !default;
+$typography-body-16-underlined-text-decoration: underline !default;
+$typography-body-16-underlined-font-family: Public Sans !default;
+$typography-body-16-underlined-font-weight: 400 !default;
+$typography-body-16-underlined-font-style: normal !default;
+$typography-body-16-underlined-font-stretch: normal !default;
+$typography-body-16-underlined-letter-spacing: 0 !default;
+$typography-body-16-underlined-line-height: 24 !default;
+$typography-body-16-underlined-paragraph-indent: 0 !default;
+$typography-body-16-underlined-paragraph-spacing: 16 !default;
+$typography-body-16-underlined-text-case: none !default;
+$typography-body-14-semibold-font-size: 14 !default;
+$typography-body-14-semibold-text-decoration: none !default;
+$typography-body-14-semibold-font-family: Public Sans !default;
+$typography-body-14-semibold-font-weight: 600 !default;
+$typography-body-14-semibold-font-style: normal !default;
+$typography-body-14-semibold-font-stretch: normal !default;
+$typography-body-14-semibold-letter-spacing: 0 !default;
+$typography-body-14-semibold-line-height: 20 !default;
+$typography-body-14-semibold-paragraph-indent: 0 !default;
+$typography-body-14-semibold-paragraph-spacing: 16 !default;
+$typography-body-14-semibold-text-case: none !default;
+$typography-body-14-underlined-font-size: 14 !default;
+$typography-body-14-underlined-text-decoration: underline !default;
+$typography-body-14-underlined-font-family: Public Sans !default;
+$typography-body-14-underlined-font-weight: 400 !default;
+$typography-body-14-underlined-font-style: normal !default;
+$typography-body-14-underlined-font-stretch: normal !default;
+$typography-body-14-underlined-letter-spacing: 0 !default;
+$typography-body-14-underlined-line-height: 20 !default;
+$typography-body-14-underlined-paragraph-indent: 0 !default;
+$typography-body-14-underlined-paragraph-spacing: 16 !default;
+$typography-body-14-underlined-text-case: none !default;
+$typography-body-12-semibold-font-size: 12 !default;
+$typography-body-12-semibold-text-decoration: none !default;
+$typography-body-12-semibold-font-family: Public Sans !default;
+$typography-body-12-semibold-font-weight: 600 !default;
+$typography-body-12-semibold-font-style: normal !default;
+$typography-body-12-semibold-font-stretch: normal !default;
+$typography-body-12-semibold-letter-spacing: 0 !default;
+$typography-body-12-semibold-line-height: 18 !default;
+$typography-body-12-semibold-paragraph-indent: 0 !default;
+$typography-body-12-semibold-paragraph-spacing: 8 !default;
+$typography-body-12-semibold-text-case: none !default;
+$typography-body-12-underlined-font-size: 12 !default;
+$typography-body-12-underlined-text-decoration: underline !default;
+$typography-body-12-underlined-font-family: Public Sans !default;
+$typography-body-12-underlined-font-weight: 400 !default;
+$typography-body-12-underlined-font-style: normal !default;
+$typography-body-12-underlined-font-stretch: normal !default;
+$typography-body-12-underlined-letter-spacing: 0 !default;
+$typography-body-12-underlined-line-height: 18 !default;
+$typography-body-12-underlined-paragraph-indent: 0 !default;
+$typography-body-12-underlined-paragraph-spacing: 8 !default;
+$typography-body-12-underlined-text-case: none !default;
+$typography-numbers-24-font-size: 24 !default;
+$typography-numbers-24-text-decoration: none !default;
+$typography-numbers-24-font-family: Public Sans !default;
+$typography-numbers-24-font-weight: 400 !default;
+$typography-numbers-24-font-style: normal !default;
+$typography-numbers-24-font-stretch: normal !default;
+$typography-numbers-24-letter-spacing: 0 !default;
+$typography-numbers-24-line-height: 24 !default;
+$typography-numbers-24-paragraph-indent: 0 !default;
+$typography-numbers-24-paragraph-spacing: 0 !default;
+$typography-numbers-24-text-case: none !default;
+$typography-numbers-40-font-size: 40 !default;
+$typography-numbers-40-text-decoration: none !default;
+$typography-numbers-40-font-family: Public Sans !default;
+$typography-numbers-40-font-weight: 400 !default;
+$typography-numbers-40-font-style: normal !default;
+$typography-numbers-40-font-stretch: normal !default;
+$typography-numbers-40-letter-spacing: 0 !default;
+$typography-numbers-40-line-height: 40 !default;
+$typography-numbers-40-paragraph-indent: 0 !default;
+$typography-numbers-40-paragraph-spacing: 0 !default;
+$typography-numbers-40-text-case: none !default;
+$typography-numbers-72-font-size: 72 !default;
+$typography-numbers-72-text-decoration: none !default;
+$typography-numbers-72-font-family: Public Sans !default;
+$typography-numbers-72-font-weight: 400 !default;
+$typography-numbers-72-font-style: normal !default;
+$typography-numbers-72-font-stretch: normal !default;
+$typography-numbers-72-letter-spacing: -2.16 !default;
+$typography-numbers-72-line-height: 72 !default;
+$typography-numbers-72-paragraph-indent: 0 !default;
+$typography-numbers-72-paragraph-spacing: 0 !default;
+$typography-numbers-72-text-case: none !default;
+$typography-numbers-160-font-size: 160 !default;
+$typography-numbers-160-text-decoration: none !default;
+$typography-numbers-160-font-family: Public Sans !default;
+$typography-numbers-160-font-weight: 400 !default;
+$typography-numbers-160-font-style: normal !default;
+$typography-numbers-160-font-stretch: normal !default;
+$typography-numbers-160-letter-spacing: -4.8 !default;
+$typography-numbers-160-line-height: 160 !default;
+$typography-numbers-160-paragraph-indent: 0 !default;
+$typography-numbers-160-paragraph-spacing: 0 !default;
+$typography-numbers-160-text-case: none !default;
+
+$tokens: (
+  'gradient': (
+    'gradients': (
+      'haze': $gradient-gradients-haze,
+      'price-card-gradient': $gradient-gradients-price-card-gradient,
+      'main': $gradient-gradients-main,
+      'main-2': $gradient-gradients-main-2,
+      'purple': $gradient-gradients-purple,
+      'green': $gradient-gradients-green,
+      'red': $gradient-gradients-red,
+      'red-to-green': $gradient-gradients-red-to-green,
+      'orange-to-teal': $gradient-gradients-orange-to-teal,
+      'orange-to-blue': $gradient-gradients-orange-to-blue,
+      'orange-to-purple': $gradient-gradients-orange-to-purple,
+      'yellow-to-purple': $gradient-gradients-yellow-to-purple,
+      'archive': $gradient-gradients-archive
+    )
+  ),
+  'color': (
+    'neutral': (
+      '10': $color-neutral-10,
+      '20': $color-neutral-20,
+      '60': $color-neutral-60,
+      '70': $color-neutral-70,
+      '80': $color-neutral-80,
+      '90': $color-neutral-90,
+      '00-white': $color-neutral-00-white,
+      '05': $color-neutral-05,
+      '100-black': $color-neutral-100-black
+    ),
+    'primary': (
+      '20': $color-primary-20,
+      '30': $color-primary-30,
+      '40': $color-primary-40,
+      '50': $color-primary-50,
+      '60': $color-primary-60
+    ),
+    'semantic': (
+      'warning': (
+        '01': $color-semantic-warning-01,
+        '02': $color-semantic-warning-02,
+        '03': $color-semantic-warning-03
+      ),
+      'negative': (
+        '01': $color-semantic-negative-01,
+        '02': $color-semantic-negative-02,
+        '03': $color-semantic-negative-03
+      ),
+      'positive': (
+        '01': $color-semantic-positive-01,
+        '02': $color-semantic-positive-02,
+        '03': $color-semantic-positive-03
+      )
+    ),
+    'neutral-transparent': (
+      'black-20': $color-neutral-transparent-black-20,
+      'black-10': $color-neutral-transparent-black-10,
+      'white-20': $color-neutral-transparent-white-20,
+      'white-10': $color-neutral-transparent-white-10
+    )
+  ),
+  'grid': (
+    'large-left-rail': (
+      '0': $grid-large-left-rail-0,
+      '1': $grid-large-left-rail-1,
+      '2': $grid-large-left-rail-2,
+      'comment': '',
+      'extensions': (
+        'org.lukasoppermann.figmaDesignTokens': (
+          'styleId': 'S:b77700278ff9b3e3d5a119090d79f5031c6f1a29,',
+          'exportKey': 'grid'
+        )
+      )
+    ),
+    'large-full-width': (
+      '0': $grid-large-full-width-0,
+      '1': $grid-large-full-width-1,
+      'comment': '',
+      'extensions': (
+        'org.lukasoppermann.figmaDesignTokens': (
+          'styleId': 'S:65d398c01163373720ab0f3801ff7d8590ef6d29,',
+          'exportKey': 'grid'
+        )
+      )
+    ),
+    'medium-1297px': (
+      '0': $grid-medium-1297px-0,
+      '1': $grid-medium-1297px-1,
+      'comment': 'Use for screens 1024px and smaller',
+      'extensions': (
+        'org.lukasoppermann.figmaDesignTokens': (
+          'styleId': 'S:4c8a9f2770e7241c7df674883da9b3a053b0421e,',
+          'exportKey': 'grid'
+        )
+      )
+    ),
+    'mobile-grid': (
+      '0': $grid-mobile-grid-0,
+      '1': $grid-mobile-grid-1,
+      'comment': '',
+      'extensions': (
+        'org.lukasoppermann.figmaDesignTokens': (
+          'styleId': 'S:484ce03e625932148d2983a65c32fb6a1a5ca699,',
+          'exportKey': 'grid'
+        )
+      )
+    )
+  ),
+  'font': (
+    'display': (
+      '72': $font-display-72,
+      '96': $font-display-96,
+      '120': $font-display-120,
+      '160': $font-display-160
+    ),
+    'heading': (
+      '16': $font-heading-16,
+      '20': $font-heading-20,
+      '24': $font-heading-24,
+      '32': $font-heading-32,
+      '40': $font-heading-40,
+      '48': $font-heading-48
+    ),
+    'body': (
+      '12': $font-body-12,
+      '14': $font-body-14,
+      '16': $font-body-16,
+      '24': $font-body-24,
+      '24-semibold': $font-body-24-semibold,
+      '24-underlined': $font-body-24-underlined,
+      '16-semibold': $font-body-16-semibold,
+      '16-underlined': $font-body-16-underlined,
+      '14-semibold': $font-body-14-semibold,
+      '14-underlined': $font-body-14-underlined,
+      '12-semibold': $font-body-12-semibold,
+      '12-underlined': $font-body-12-underlined
+    ),
+    'numbers': (
+      '24': $font-numbers-24,
+      '40': $font-numbers-40,
+      '72': $font-numbers-72,
+      '160': $font-numbers-160
+    )
+  ),
+  'effect': (
+    'elevation': (
+      'small': $effect-elevation-small,
+      'medium': $effect-elevation-medium,
+      'large': $effect-elevation-large,
+      'dropdown': (
+        '0': $effect-elevation-dropdown-0,
+        '1': $effect-elevation-dropdown-1,
+        '2': $effect-elevation-dropdown-2,
+        'comment': '',
+        'extensions': (
+          'org.lukasoppermann.figmaDesignTokens': (
+            'styleId': 'S:71adce6d2f3b10ee656d61bb3bbc196d9b112d0c,',
+            'exportKey': 'effect'
+          )
+        )
+      )
+    ),
+    'blur': (
+      'background': (
+        'comment': '',
+        'extensions': (
+          'org.lukasoppermann.figmaDesignTokens': (
+            'styleId': 'S:7c9770c057224572888d8266a17c041b35c2c674,',
+            'exportKey': 'effect'
+          )
+        )
+      ),
+      'layer-small': (
+        'comment': '',
+        'extensions': (
+          'org.lukasoppermann.figmaDesignTokens': (
+            'styleId': 'S:9aae2a566e62ab100e7f8699227f6656e0a5d2c1,',
+            'exportKey': 'effect'
+          )
+        )
+      ),
+      'layer-large': (
+        'comment': '',
+        'extensions': (
+          'org.lukasoppermann.figmaDesignTokens': (
+            'styleId': 'S:fcbb5ea71c351482b6a99198e8b72f5ef7322a21,',
+            'exportKey': 'effect'
+          )
+        )
+      )
+    )
+  ),
+  'typography': (
+    'display': (
+      '72': (
+        'fontSize': $typography-display-72-font-size,
+        'textDecoration': $typography-display-72-text-decoration,
+        'fontFamily': $typography-display-72-font-family,
+        'fontWeight': $typography-display-72-font-weight,
+        'fontStyle': $typography-display-72-font-style,
+        'fontStretch': $typography-display-72-font-stretch,
+        'letterSpacing': $typography-display-72-letter-spacing,
+        'lineHeight': $typography-display-72-line-height,
+        'paragraphIndent': $typography-display-72-paragraph-indent,
+        'paragraphSpacing': $typography-display-72-paragraph-spacing,
+        'textCase': $typography-display-72-text-case
+      ),
+      '96': (
+        'fontSize': $typography-display-96-font-size,
+        'textDecoration': $typography-display-96-text-decoration,
+        'fontFamily': $typography-display-96-font-family,
+        'fontWeight': $typography-display-96-font-weight,
+        'fontStyle': $typography-display-96-font-style,
+        'fontStretch': $typography-display-96-font-stretch,
+        'letterSpacing': $typography-display-96-letter-spacing,
+        'lineHeight': $typography-display-96-line-height,
+        'paragraphIndent': $typography-display-96-paragraph-indent,
+        'paragraphSpacing': $typography-display-96-paragraph-spacing,
+        'textCase': $typography-display-96-text-case
+      ),
+      '120': (
+        'fontSize': $typography-display-120-font-size,
+        'textDecoration': $typography-display-120-text-decoration,
+        'fontFamily': $typography-display-120-font-family,
+        'fontWeight': $typography-display-120-font-weight,
+        'fontStyle': $typography-display-120-font-style,
+        'fontStretch': $typography-display-120-font-stretch,
+        'letterSpacing': $typography-display-120-letter-spacing,
+        'lineHeight': $typography-display-120-line-height,
+        'paragraphIndent': $typography-display-120-paragraph-indent,
+        'paragraphSpacing': $typography-display-120-paragraph-spacing,
+        'textCase': $typography-display-120-text-case
+      ),
+      '160': (
+        'fontSize': $typography-display-160-font-size,
+        'textDecoration': $typography-display-160-text-decoration,
+        'fontFamily': $typography-display-160-font-family,
+        'fontWeight': $typography-display-160-font-weight,
+        'fontStyle': $typography-display-160-font-style,
+        'fontStretch': $typography-display-160-font-stretch,
+        'letterSpacing': $typography-display-160-letter-spacing,
+        'lineHeight': $typography-display-160-line-height,
+        'paragraphIndent': $typography-display-160-paragraph-indent,
+        'paragraphSpacing': $typography-display-160-paragraph-spacing,
+        'textCase': $typography-display-160-text-case
+      )
+    ),
+    'heading': (
+      '16': (
+        'fontSize': $typography-heading-16-font-size,
+        'textDecoration': $typography-heading-16-text-decoration,
+        'fontFamily': $typography-heading-16-font-family,
+        'fontWeight': $typography-heading-16-font-weight,
+        'fontStyle': $typography-heading-16-font-style,
+        'fontStretch': $typography-heading-16-font-stretch,
+        'letterSpacing': $typography-heading-16-letter-spacing,
+        'lineHeight': $typography-heading-16-line-height,
+        'paragraphIndent': $typography-heading-16-paragraph-indent,
+        'paragraphSpacing': $typography-heading-16-paragraph-spacing,
+        'textCase': $typography-heading-16-text-case
+      ),
+      '20': (
+        'fontSize': $typography-heading-20-font-size,
+        'textDecoration': $typography-heading-20-text-decoration,
+        'fontFamily': $typography-heading-20-font-family,
+        'fontWeight': $typography-heading-20-font-weight,
+        'fontStyle': $typography-heading-20-font-style,
+        'fontStretch': $typography-heading-20-font-stretch,
+        'letterSpacing': $typography-heading-20-letter-spacing,
+        'lineHeight': $typography-heading-20-line-height,
+        'paragraphIndent': $typography-heading-20-paragraph-indent,
+        'paragraphSpacing': $typography-heading-20-paragraph-spacing,
+        'textCase': $typography-heading-20-text-case
+      ),
+      '24': (
+        'fontSize': $typography-heading-24-font-size,
+        'textDecoration': $typography-heading-24-text-decoration,
+        'fontFamily': $typography-heading-24-font-family,
+        'fontWeight': $typography-heading-24-font-weight,
+        'fontStyle': $typography-heading-24-font-style,
+        'fontStretch': $typography-heading-24-font-stretch,
+        'letterSpacing': $typography-heading-24-letter-spacing,
+        'lineHeight': $typography-heading-24-line-height,
+        'paragraphIndent': $typography-heading-24-paragraph-indent,
+        'paragraphSpacing': $typography-heading-24-paragraph-spacing,
+        'textCase': $typography-heading-24-text-case
+      ),
+      '32': (
+        'fontSize': $typography-heading-32-font-size,
+        'textDecoration': $typography-heading-32-text-decoration,
+        'fontFamily': $typography-heading-32-font-family,
+        'fontWeight': $typography-heading-32-font-weight,
+        'fontStyle': $typography-heading-32-font-style,
+        'fontStretch': $typography-heading-32-font-stretch,
+        'letterSpacing': $typography-heading-32-letter-spacing,
+        'lineHeight': $typography-heading-32-line-height,
+        'paragraphIndent': $typography-heading-32-paragraph-indent,
+        'paragraphSpacing': $typography-heading-32-paragraph-spacing,
+        'textCase': $typography-heading-32-text-case
+      ),
+      '40': (
+        'fontSize': $typography-heading-40-font-size,
+        'textDecoration': $typography-heading-40-text-decoration,
+        'fontFamily': $typography-heading-40-font-family,
+        'fontWeight': $typography-heading-40-font-weight,
+        'fontStyle': $typography-heading-40-font-style,
+        'fontStretch': $typography-heading-40-font-stretch,
+        'letterSpacing': $typography-heading-40-letter-spacing,
+        'lineHeight': $typography-heading-40-line-height,
+        'paragraphIndent': $typography-heading-40-paragraph-indent,
+        'paragraphSpacing': $typography-heading-40-paragraph-spacing,
+        'textCase': $typography-heading-40-text-case
+      ),
+      '48': (
+        'fontSize': $typography-heading-48-font-size,
+        'textDecoration': $typography-heading-48-text-decoration,
+        'fontFamily': $typography-heading-48-font-family,
+        'fontWeight': $typography-heading-48-font-weight,
+        'fontStyle': $typography-heading-48-font-style,
+        'fontStretch': $typography-heading-48-font-stretch,
+        'letterSpacing': $typography-heading-48-letter-spacing,
+        'lineHeight': $typography-heading-48-line-height,
+        'paragraphIndent': $typography-heading-48-paragraph-indent,
+        'paragraphSpacing': $typography-heading-48-paragraph-spacing,
+        'textCase': $typography-heading-48-text-case
+      )
+    ),
+    'body': (
+      '12': (
+        'fontSize': $typography-body-12-font-size,
+        'textDecoration': $typography-body-12-text-decoration,
+        'fontFamily': $typography-body-12-font-family,
+        'fontWeight': $typography-body-12-font-weight,
+        'fontStyle': $typography-body-12-font-style,
+        'fontStretch': $typography-body-12-font-stretch,
+        'letterSpacing': $typography-body-12-letter-spacing,
+        'lineHeight': $typography-body-12-line-height,
+        'paragraphIndent': $typography-body-12-paragraph-indent,
+        'paragraphSpacing': $typography-body-12-paragraph-spacing,
+        'textCase': $typography-body-12-text-case
+      ),
+      '14': (
+        'fontSize': $typography-body-14-font-size,
+        'textDecoration': $typography-body-14-text-decoration,
+        'fontFamily': $typography-body-14-font-family,
+        'fontWeight': $typography-body-14-font-weight,
+        'fontStyle': $typography-body-14-font-style,
+        'fontStretch': $typography-body-14-font-stretch,
+        'letterSpacing': $typography-body-14-letter-spacing,
+        'lineHeight': $typography-body-14-line-height,
+        'paragraphIndent': $typography-body-14-paragraph-indent,
+        'paragraphSpacing': $typography-body-14-paragraph-spacing,
+        'textCase': $typography-body-14-text-case
+      ),
+      '16': (
+        'fontSize': $typography-body-16-font-size,
+        'textDecoration': $typography-body-16-text-decoration,
+        'fontFamily': $typography-body-16-font-family,
+        'fontWeight': $typography-body-16-font-weight,
+        'fontStyle': $typography-body-16-font-style,
+        'fontStretch': $typography-body-16-font-stretch,
+        'letterSpacing': $typography-body-16-letter-spacing,
+        'lineHeight': $typography-body-16-line-height,
+        'paragraphIndent': $typography-body-16-paragraph-indent,
+        'paragraphSpacing': $typography-body-16-paragraph-spacing,
+        'textCase': $typography-body-16-text-case
+      ),
+      '24': (
+        'fontSize': $typography-body-24-font-size,
+        'textDecoration': $typography-body-24-text-decoration,
+        'fontFamily': $typography-body-24-font-family,
+        'fontWeight': $typography-body-24-font-weight,
+        'fontStyle': $typography-body-24-font-style,
+        'fontStretch': $typography-body-24-font-stretch,
+        'letterSpacing': $typography-body-24-letter-spacing,
+        'lineHeight': $typography-body-24-line-height,
+        'paragraphIndent': $typography-body-24-paragraph-indent,
+        'paragraphSpacing': $typography-body-24-paragraph-spacing,
+        'textCase': $typography-body-24-text-case
+      ),
+      '24-semibold': (
+        'fontSize': $typography-body-24-semibold-font-size,
+        'textDecoration': $typography-body-24-semibold-text-decoration,
+        'fontFamily': $typography-body-24-semibold-font-family,
+        'fontWeight': $typography-body-24-semibold-font-weight,
+        'fontStyle': $typography-body-24-semibold-font-style,
+        'fontStretch': $typography-body-24-semibold-font-stretch,
+        'letterSpacing': $typography-body-24-semibold-letter-spacing,
+        'lineHeight': $typography-body-24-semibold-line-height,
+        'paragraphIndent': $typography-body-24-semibold-paragraph-indent,
+        'paragraphSpacing': $typography-body-24-semibold-paragraph-spacing,
+        'textCase': $typography-body-24-semibold-text-case
+      ),
+      '24-underlined': (
+        'fontSize': $typography-body-24-underlined-font-size,
+        'textDecoration': $typography-body-24-underlined-text-decoration,
+        'fontFamily': $typography-body-24-underlined-font-family,
+        'fontWeight': $typography-body-24-underlined-font-weight,
+        'fontStyle': $typography-body-24-underlined-font-style,
+        'fontStretch': $typography-body-24-underlined-font-stretch,
+        'letterSpacing': $typography-body-24-underlined-letter-spacing,
+        'lineHeight': $typography-body-24-underlined-line-height,
+        'paragraphIndent': $typography-body-24-underlined-paragraph-indent,
+        'paragraphSpacing': $typography-body-24-underlined-paragraph-spacing,
+        'textCase': $typography-body-24-underlined-text-case
+      ),
+      '16-semibold': (
+        'fontSize': $typography-body-16-semibold-font-size,
+        'textDecoration': $typography-body-16-semibold-text-decoration,
+        'fontFamily': $typography-body-16-semibold-font-family,
+        'fontWeight': $typography-body-16-semibold-font-weight,
+        'fontStyle': $typography-body-16-semibold-font-style,
+        'fontStretch': $typography-body-16-semibold-font-stretch,
+        'letterSpacing': $typography-body-16-semibold-letter-spacing,
+        'lineHeight': $typography-body-16-semibold-line-height,
+        'paragraphIndent': $typography-body-16-semibold-paragraph-indent,
+        'paragraphSpacing': $typography-body-16-semibold-paragraph-spacing,
+        'textCase': $typography-body-16-semibold-text-case
+      ),
+      '16-underlined': (
+        'fontSize': $typography-body-16-underlined-font-size,
+        'textDecoration': $typography-body-16-underlined-text-decoration,
+        'fontFamily': $typography-body-16-underlined-font-family,
+        'fontWeight': $typography-body-16-underlined-font-weight,
+        'fontStyle': $typography-body-16-underlined-font-style,
+        'fontStretch': $typography-body-16-underlined-font-stretch,
+        'letterSpacing': $typography-body-16-underlined-letter-spacing,
+        'lineHeight': $typography-body-16-underlined-line-height,
+        'paragraphIndent': $typography-body-16-underlined-paragraph-indent,
+        'paragraphSpacing': $typography-body-16-underlined-paragraph-spacing,
+        'textCase': $typography-body-16-underlined-text-case
+      ),
+      '14-semibold': (
+        'fontSize': $typography-body-14-semibold-font-size,
+        'textDecoration': $typography-body-14-semibold-text-decoration,
+        'fontFamily': $typography-body-14-semibold-font-family,
+        'fontWeight': $typography-body-14-semibold-font-weight,
+        'fontStyle': $typography-body-14-semibold-font-style,
+        'fontStretch': $typography-body-14-semibold-font-stretch,
+        'letterSpacing': $typography-body-14-semibold-letter-spacing,
+        'lineHeight': $typography-body-14-semibold-line-height,
+        'paragraphIndent': $typography-body-14-semibold-paragraph-indent,
+        'paragraphSpacing': $typography-body-14-semibold-paragraph-spacing,
+        'textCase': $typography-body-14-semibold-text-case
+      ),
+      '14-underlined': (
+        'fontSize': $typography-body-14-underlined-font-size,
+        'textDecoration': $typography-body-14-underlined-text-decoration,
+        'fontFamily': $typography-body-14-underlined-font-family,
+        'fontWeight': $typography-body-14-underlined-font-weight,
+        'fontStyle': $typography-body-14-underlined-font-style,
+        'fontStretch': $typography-body-14-underlined-font-stretch,
+        'letterSpacing': $typography-body-14-underlined-letter-spacing,
+        'lineHeight': $typography-body-14-underlined-line-height,
+        'paragraphIndent': $typography-body-14-underlined-paragraph-indent,
+        'paragraphSpacing': $typography-body-14-underlined-paragraph-spacing,
+        'textCase': $typography-body-14-underlined-text-case
+      ),
+      '12-semibold': (
+        'fontSize': $typography-body-12-semibold-font-size,
+        'textDecoration': $typography-body-12-semibold-text-decoration,
+        'fontFamily': $typography-body-12-semibold-font-family,
+        'fontWeight': $typography-body-12-semibold-font-weight,
+        'fontStyle': $typography-body-12-semibold-font-style,
+        'fontStretch': $typography-body-12-semibold-font-stretch,
+        'letterSpacing': $typography-body-12-semibold-letter-spacing,
+        'lineHeight': $typography-body-12-semibold-line-height,
+        'paragraphIndent': $typography-body-12-semibold-paragraph-indent,
+        'paragraphSpacing': $typography-body-12-semibold-paragraph-spacing,
+        'textCase': $typography-body-12-semibold-text-case
+      ),
+      '12-underlined': (
+        'fontSize': $typography-body-12-underlined-font-size,
+        'textDecoration': $typography-body-12-underlined-text-decoration,
+        'fontFamily': $typography-body-12-underlined-font-family,
+        'fontWeight': $typography-body-12-underlined-font-weight,
+        'fontStyle': $typography-body-12-underlined-font-style,
+        'fontStretch': $typography-body-12-underlined-font-stretch,
+        'letterSpacing': $typography-body-12-underlined-letter-spacing,
+        'lineHeight': $typography-body-12-underlined-line-height,
+        'paragraphIndent': $typography-body-12-underlined-paragraph-indent,
+        'paragraphSpacing': $typography-body-12-underlined-paragraph-spacing,
+        'textCase': $typography-body-12-underlined-text-case
+      )
+    ),
+    'numbers': (
+      '24': (
+        'fontSize': $typography-numbers-24-font-size,
+        'textDecoration': $typography-numbers-24-text-decoration,
+        'fontFamily': $typography-numbers-24-font-family,
+        'fontWeight': $typography-numbers-24-font-weight,
+        'fontStyle': $typography-numbers-24-font-style,
+        'fontStretch': $typography-numbers-24-font-stretch,
+        'letterSpacing': $typography-numbers-24-letter-spacing,
+        'lineHeight': $typography-numbers-24-line-height,
+        'paragraphIndent': $typography-numbers-24-paragraph-indent,
+        'paragraphSpacing': $typography-numbers-24-paragraph-spacing,
+        'textCase': $typography-numbers-24-text-case
+      ),
+      '40': (
+        'fontSize': $typography-numbers-40-font-size,
+        'textDecoration': $typography-numbers-40-text-decoration,
+        'fontFamily': $typography-numbers-40-font-family,
+        'fontWeight': $typography-numbers-40-font-weight,
+        'fontStyle': $typography-numbers-40-font-style,
+        'fontStretch': $typography-numbers-40-font-stretch,
+        'letterSpacing': $typography-numbers-40-letter-spacing,
+        'lineHeight': $typography-numbers-40-line-height,
+        'paragraphIndent': $typography-numbers-40-paragraph-indent,
+        'paragraphSpacing': $typography-numbers-40-paragraph-spacing,
+        'textCase': $typography-numbers-40-text-case
+      ),
+      '72': (
+        'fontSize': $typography-numbers-72-font-size,
+        'textDecoration': $typography-numbers-72-text-decoration,
+        'fontFamily': $typography-numbers-72-font-family,
+        'fontWeight': $typography-numbers-72-font-weight,
+        'fontStyle': $typography-numbers-72-font-style,
+        'fontStretch': $typography-numbers-72-font-stretch,
+        'letterSpacing': $typography-numbers-72-letter-spacing,
+        'lineHeight': $typography-numbers-72-line-height,
+        'paragraphIndent': $typography-numbers-72-paragraph-indent,
+        'paragraphSpacing': $typography-numbers-72-paragraph-spacing,
+        'textCase': $typography-numbers-72-text-case
+      ),
+      '160': (
+        'fontSize': $typography-numbers-160-font-size,
+        'textDecoration': $typography-numbers-160-text-decoration,
+        'fontFamily': $typography-numbers-160-font-family,
+        'fontWeight': $typography-numbers-160-font-weight,
+        'fontStyle': $typography-numbers-160-font-style,
+        'fontStretch': $typography-numbers-160-font-stretch,
+        'letterSpacing': $typography-numbers-160-letter-spacing,
+        'lineHeight': $typography-numbers-160-line-height,
+        'paragraphIndent': $typography-numbers-160-paragraph-indent,
+        'paragraphSpacing': $typography-numbers-160-paragraph-spacing,
+        'textCase': $typography-numbers-160-text-case
+      )
+    )
+  )
+);

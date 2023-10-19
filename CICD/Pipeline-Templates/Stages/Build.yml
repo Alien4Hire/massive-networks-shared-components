@@ -1,0 +1,25 @@
+parameters:
+- name: CanaryMode
+  default: false
+- name: VariableLocation
+  default: ''
+- name: Environments
+  default: {}
+  type: object
+
+stages:
+- stage: Build
+  displayName: "Build"
+  dependsOn: []
+  ${{ if eq(parameters['CanaryMode'], 'true') }}:
+    pool:
+      name: $(canaryPool)
+  variables:
+    - template: /CICD/Variables/build.yml@self
+  jobs:
+    - template: Pipeline-Templates/Standalone/Jobs/Checkmarx/Checkmarx.yml@DevSecOpsYAML
+    - template:  /CICD/pipeline/jobs/build.yml@self
+      parameters:
+        CanaryMode: ${{ parameters.CanaryMode }}
+        VariableLocation: ${{ parameters.VariableLocation }}
+        Environments: ${{ parameters.Environments }}

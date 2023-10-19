@@ -1,0 +1,51 @@
+parameters:
+  - name: Environment
+    default: Dev
+  - name: AssignmentGroup
+    default:
+  - name: ChangeWindow
+    default:
+  - name: BusinessHourJustification
+    default:
+  - name: ChangeReason
+    default:
+  - name: ReleaseComments
+    default:
+  - name: CIName
+    default:
+  - name: CanaryMode
+    default: false
+
+jobs:
+- deployment: Deploy_SNOW_Start
+  ${{ if eq(parameters['CanaryMode'], 'true') }}:
+    pool:
+      name: $(canaryPool)
+  displayName: "Service Now Start for ${{ parameters.Environment }}"
+  dependsOn: []
+  environment: "$(Build.DefinitionName)-${{ parameters.Environment }}"
+  workspace:
+    clean: all
+  strategy:
+    runOnce:
+      preDeploy:
+        pool: server
+        steps:
+          - template: ../../Standalone/Steps/ServiceNow/Pre-Deployment.yml@DevSecOpsYAML
+            parameters:
+              ChangeWindow: ${{ parameters.ChangeWindow }}
+              BusinessHourJustification: ${{ parameters.BusinessHourJustification }}
+              ChangeReason: ${{ parameters.ChangeReason }}
+              ReleaseComments: ${{ parameters.ReleaseComments }}
+              CIName: ${{ parameters.CIName }}
+          - template: ../../Standalone/Steps/ServiceNow/Start-Deployment.yml@DevSecOpsYAML
+            parameters:
+              AssignmentGroup: ${{ parameters.AssignmentGroup }}
+      deploy:
+        steps:
+        - script: echo "Hello world"
+      on:
+        failure:
+          pool: server
+          steps:
+          - template: ../../Standalone/Steps/ServiceNow/Deploy-Failed.yml@DevSecOpsYAML

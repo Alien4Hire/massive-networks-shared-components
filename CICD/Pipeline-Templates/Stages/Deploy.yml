@@ -1,0 +1,94 @@
+parameters:
+  - name: Environment
+    default: Dev
+  - name: TimeoutInMinutes
+    type: string
+    default: 60
+  - name: nonProdInParallel
+    type: boolean
+    default: false
+  - name: MakeDevGo
+    default: false
+  - name: MakeQAGo
+    default: false
+  - name: CanaryMode
+    default: false
+  - name: VariableLocation
+    default: Variables
+  - name: RunPostDeploymentValidation
+    type: boolean
+    default: false
+  - name: EnableSNOW
+    type: boolean
+    default: false
+  - name: AssignmentGroup
+    default:
+  - name: ChangeWindow
+    default:
+  - name: BusinessHourJustification
+    default:
+  - name: ChangeReason
+    default:
+  - name: ReleaseComments
+    default:
+  - name: CIName
+    default:
+
+stages:
+- stage: ${{ parameters.Environment }}
+  ${{ if eq(parameters['Environment'], 'dev') }}:
+    condition: | 
+      and(
+        succeeded(), 
+        or(
+          startsWith(variables['Build.SourceBranch'], 'refs/heads/users/'),
+          startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'),
+          startsWith(variables['Build.SourceBranch'], 'refs/heads/feature/'), 
+          startsWith(variables['Build.SourceBranch'], 'refs/heads/bundle/'), 
+          eq(variables['Build.SourceBranch'], 'refs/heads/master'),
+          eq(variables['Build.SourceBranch'], 'refs/heads/main'),
+          eq(variables['Build.SourceBranch'], 'refs/heads/dev'),
+          eq(variables['Build.SourceBranch'], 'refs/heads/develop'),
+          eq('${{ parameters.MakeDevGo }}', 'true')
+        )
+      )
+    dependsOn: Build
+  ${{ if eq(parameters['Environment'], 'qa') }}:
+    condition: | 
+      and(
+        succeeded(), 
+        or(
+          eq(variables['Build.SourceBranch'], 'refs/heads/master'),
+          eq(variables['Build.SourceBranch'], 'refs/heads/main'),
+          eq('${{ parameters.MakeQAGo }}', 'true')
+        ),
+        eq('${{ parameters.CanaryMode }}', 'false')
+      )
+    ${{ if eq(parameters['nonProdInParallel'], true)}}:
+      dependsOn: Build
+
+  displayName: "${{ parameters.Environment }}"
+  ${{ if eq(parameters['CanaryMode'], 'true') }}:
+    pool:
+      name: $(canaryPool)
+  variables:
+    - template: ${{ parameters.VariableLocation }}/${{ parameters.Environment }}.yml@self
+  jobs:
+  - template: ../Jobs/Deploy.yml@self
+    parameters:
+      Environment: ${{ parameters.Environment }}
+      TimeoutInMinutes: ${{ parameters.TimeoutInMinutes }}
+      CanaryMode: ${{ parameters.CanaryMode }}
+      VariableLocation: ${{ parameters.VariableLocation }}
+      AssignmentGroup: ${{ parameters.AssignmentGroup }}
+      ChangeWindow: ${{ parameters.ChangeWindow }}
+      BusinessHourJustification: ${{ parameters.BusinessHourJustification }}
+      ChangeReason: ${{ parameters.ChangeReason }}
+      ReleaseComments: ${{ parameters.ReleaseComments }}
+      CIName: ${{ parameters.CIName }}
+      EnableSnow: ${{ parameters.EnableSNOW }}
+  
+  - ${{ if eq(parameters['RunPostDeploymentValidation'], 'true') }}:
+    - template: pipeline/jobs/run-post-deployment-validation.yml@self
+      parameters:
+        Environment: ${{ parameters.Environment }}

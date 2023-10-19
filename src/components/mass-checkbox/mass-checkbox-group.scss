@@ -1,0 +1,109 @@
+:host {
+  display: block;
+  font-family: $typography-body-16-font-family;
+}
+
+.checkbox-title {
+  color: $color-neutral-90;
+  font-family: $typography-body-16-font-family;
+  font-size: $typography-body-16-font-size;
+  font-weight: $typography-body-16-semibold-font-weight;
+  line-height: getLineHeightRatio($typography-body-16-font-size, $typography-body-16-line-height);
+}
+
+.title-margin {
+  margin-bottom: pxToRem(16);
+}
+
+.label-margin-bottom {
+  margin-bottom: pxToRem(16);
+}
+
+.checkbox-text {
+  color: $color-neutral-90;
+  font-family: $typography-body-14-font-family;
+  font-size: $typography-body-16-font-size;
+  font-style: $typography-body-16-font-style;
+  font-weight: $typography-body-16-font-weight;
+  line-height: getLineHeightRatio($typography-body-16-font-size, $typography-body-16-line-height);
+  margin-left: pxToRem(8);
+}
+
+.checkbox-wrapper {
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox-holder {
+  width: pxToRem(25);
+  height: pxToRem(25);
+  position: relative;
+}
+
+.checked-icon {
+  width: pxToRem(24);
+  height: pxToRem(24);
+  display: inline-block;
+  position: absolute;
+  top: pxToRem(0);
+  left: pxToRem(0);
+  font-size: pxToRem($typography-heading-24-font-size);
+  display: flex;
+  border-radius: pxToRem(4);
+  mass-icon {
+    position: relative;
+    top: -2px;
+  };
+}
+
+.primary-check {
+  background-color: $color-primary-50;
+}
+
+.neutral-disabled {
+  background-color: $color-neutral-20;
+}
+
+.unchecked-icon {
+  width: pxToRem(24);
+  height: pxToRem(24);
+  border: 1px solid $color-neutral-70;
+  border-radius: pxToRem(2);
+  display: inline-block;
+}
+
+.unchecked-icon-disabled {
+  width: pxToRem(24);
+  height: pxToRem(24);
+  border: 1px solid $color-neutral-20;
+  border-radius: pxToRem(2);
+  display: inline-block;
+  background-color: $color-neutral-05;
+}
+
+.error-wrapper {
+  display: flex;
+  align-items: center;
+  gap: pxToRem(8);
+  margin-top: pxToRem(8);
+}
+
+.error-text {
+  color: $color-semantic-negative-03;
+  font-size: $typography-body-12-font-size;
+  font-family: $typography-body-12-font-family;
+}
+
+.unchecked-icon:focus {
+  border-color: $color-neutral-70;
+}

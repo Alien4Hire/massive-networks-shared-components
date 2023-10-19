@@ -1,0 +1,116 @@
+:host {
+  display: block;
+  border-radius: 8px;
+  background: $color-neutral-00-white;
+  container-type: inline-size;
+
+  // start reset css
+  legend {
+    display: table;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    + * {
+      clear: both;
+    }
+  }
+  fieldset {
+    border: 0;
+    padding: 0.01em 0 0 0;
+    margin: 0;
+    min-width: 0;
+  }
+
+  body:not(:-moz-handler-blocked) fieldset {
+    display: table-cell;
+  }
+  // end reset css
+
+  .mass-qt_container {
+    display: flex;
+    flex-direction: column;
+    padding: pxToRem(16);
+    gap: pxToRem(16);
+  }
+
+  @media (min-width: 624px) {
+    .mass-qt_container {
+      flex-direction: row;
+    }
+  }
+
+  .mass-qt_icon-legend-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+  }
+
+  .mass-qt_input-container {
+    display: flex;
+    gap: pxToRem(8);
+  }
+
+  .mass-qt_icon {
+    font-size: 32px;
+    padding: 4px 12px;
+  }
+
+  .mass-qt_legend {
+    font-family: $typography-body-16-font-family;
+    font-size: pxToRem($typography-body-16-font-size);
+    font-style: $typography-body-16-font-style;
+    font-weight: $typography-body-16-underlined-font-weight;
+    line-height: getLineHeightRatio($typography-body-16-line-height, $typography-body-16-font-size);
+  }
+
+  .mass-qt_input-label {
+    display: flex;
+    width: 100%;
+    padding: pxToRem(12) pxToRem(26);
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid $color-neutral-transparent-black-10;
+    background: $color-neutral-00-white;
+    border-radius: pxToRem(12);
+
+    font-family: $typography-body-16-font-family;
+    font-size: pxToRem($typography-body-16-font-size);
+    font-style: $typography-body-16-font-style;
+    font-weight: $typography-body-16-underlined-font-weight;
+    line-height: getLineHeightRatio($typography-body-16-line-height, $typography-body-16-font-size);
+  }
+
+  @media (min-width: 624px) {
+    .mass-qt_input-label {
+      width: 140px;
+    }
+  }
+
+  .mass-qt_input {
+    // spoken only start
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    // spoken only end
+
+    &:checked + .mass-qt_input-label {
+      background: $color-primary-40;
+      color: $color-neutral-00-white;
+    }
+
+    &:focus + .mass-qt_input-label {
+      // browser highlight/focus style start
+      outline: 5px auto Highlight;
+      outline: 5px auto -webkit-focus-ring-color;
+      // browser highlight/focus style end
+    }
+  }
+}

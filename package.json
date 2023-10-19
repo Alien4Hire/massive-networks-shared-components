@@ -1,0 +1,82 @@
+{
+  "name": "massive-networks-shared-web-components",
+  "version": "0.1.0",
+  "description": "MASS Shared Web Components",
+  "type": "module",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "npm-run-all build-stencil compodoc build-storybook",
+    "build-all": "npm-run-all build-stencil compodoc build-storybook",
+    "build-design-tokens": "node build-design-tokens.mjs",
+    "build-storybook": "storybook build",
+    "build-stencil": "stencil build --docs",
+    "compodoc": "npx compodoc -p tsconfig.doc.json",
+    "dev": "npm-run-all storybook",
+    "generate": "plop --plopfile src/boilerplate/plopfile.mjs",
+    "test": "stencil test --spec",
+    "test.watch": "stencil test --spec --watchAll",
+    "prestencil": "npm run build",
+    "stencil": "stencil build --dev --watch --serve",
+    "prestorybook": "npm run build",
+    "storybook": "storybook dev -p 6006"
+  },
+  "dependencies": {
+    "@googlemaps/js-api-loader": "^1.16.2",
+    "@stencil/core": "^4.2.0",
+    "googlemaps": "^1.12.0",
+    "lit-html": "^2.8.0",
+    "storybook-addon-rem": "^1.3.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-methods": "^7.18.6",
+    "@compodoc/compodoc": "^1.1.21",
+    "@stencil/sass": "^3.0.5",
+    "@storybook/addon-a11y": "^7.4.5",
+    "@storybook/addon-essentials": "^7.4.0",
+    "@storybook/addon-interactions": "^7.4.0",
+    "@storybook/addon-links": "^7.4.0",
+    "@storybook/blocks": "^7.4.0",
+    "@storybook/html": "^7.4.0",
+    "@storybook/html-vite": "^7.4.0",
+    "@storybook/testing-library": "^0.2.0",
+    "@storybook/web-components": "^7.4.0",
+    "@storybook/web-components-vite": "^7.4.0",
+    "@types/google.maps": "^3.54.4",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.48",
+    "jest": "^27.5.1",
+    "jest-cli": "^27.5.1",
+    "jest-svg-transformer": "^1.0.0",
+    "lit": "^2.7.6",
+    "npm-run-all": "^4.1.5",
+    "plop": "^4.0.0",
+    "puppeteer": "^20.7.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.68.0",
+    "storybook": "^7.4.0",
+    "style-dictionary": "^3.8.0",
+    "style-dictionary-utils": "^2.0.0",
+    "typescript": "^5.1.6"
+  },
+  "overrides": {
+    "@types/react": "^18.2.0"
+  },
+  "resolutions": {
+    "@types/react": "^18.2.0"
+  },
+  "license": "MIT"
+}

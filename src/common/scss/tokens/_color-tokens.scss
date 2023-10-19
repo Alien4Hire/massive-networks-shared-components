@@ -1,0 +1,84 @@
+
+/**
+ * Do not edit directly
+ * Generated on Fri, 22 Sep 2023 14:49:05 GMT
+ */
+
+$color-neutral-10: #e0e6e9 !default;
+$color-neutral-20: #ced3d4 !default;
+$color-neutral-60: #666666 !default; // AA Accessibility (4.5)
+$color-neutral-70: #595a5b !default;
+$color-neutral-80: #434344 !default;
+$color-neutral-90: #2c2d2e !default;
+$color-neutral-00-white: #ffffff !default;
+$color-neutral-red-20: #E25050 !default;
+$color-neutral-purple-20: #DE43DE !default;
+$color-neutral-blue-20: #37DEC5 !default;
+$color-neutral-red-10: #DE4E4E !default;
+$color-neutral-green-20: #8EDE64 !default;
+$color-neutral-05: #f1f3f5 !default;
+$color-neutral-100-black: #000000 !default;
+$color-primary-20: #ebf0ff !default;
+$color-primary-30: #5678f1 !default;
+$color-primary-40: #3258d2 !default;
+$color-primary-50: #11329e !default;
+$color-primary-60: #001a70 !default;
+$color-semantic-warning-01: #ffecab !default;
+$color-semantic-warning-02: #f6c955 !default;
+$color-semantic-warning-03: #eea311 !default;
+$color-semantic-negative-01: #ffdfd1 !default;
+$color-semantic-negative-02: #ff6d4d !default;
+$color-semantic-negative-03: #d24509 !default;
+$color-semantic-positive-01: #d2f4e8 !default;
+$color-semantic-positive-02: #80d6ad !default;
+$color-semantic-positive-03: #17a874 !default;
+$color-neutral-transparent-black-20: rgba(0, 0, 0, 0.2) !default;
+$color-neutral-transparent-black-10: rgba(0, 0, 0, 0.1) !default;
+$color-neutral-transparent-white-20: rgba(255, 255, 255, 0.2) !default;
+$color-neutral-transparent-white-10: rgba(255, 255, 255, 0.1) !default;
+
+$tokens: (
+  'color': (
+    'neutral': (
+      '10': $color-neutral-10,
+      '20': $color-neutral-20,
+      '60': $color-neutral-60,
+      '70': $color-neutral-70,
+      '80': $color-neutral-80,
+      '90': $color-neutral-90,
+      '00-white': $color-neutral-00-white,
+      '05': $color-neutral-05,
+      '100-black': $color-neutral-100-black
+    ),
+    'primary': (
+      '20': $color-primary-20,
+      '30': $color-primary-30,
+      '40': $color-primary-40,
+      '50': $color-primary-50,
+      '60': $color-primary-60
+    ),
+    'semantic': (
+      'warning': (
+        '01': $color-semantic-warning-01,
+        '02': $color-semantic-warning-02,
+        '03': $color-semantic-warning-03
+      ),
+      'negative': (
+        '01': $color-semantic-negative-01,
+        '02': $color-semantic-negative-02,
+        '03': $color-semantic-negative-03
+      ),
+      'positive': (
+        '01': $color-semantic-positive-01,
+        '02': $color-semantic-positive-02,
+        '03': $color-semantic-positive-03
+      )
+    ),
+    'neutral-transparent': (
+      'black-20': $color-neutral-transparent-black-20,
+      'black-10': $color-neutral-transparent-black-10,
+      'white-20': $color-neutral-transparent-white-20,
+      'white-10': $color-neutral-transparent-white-10
+    )
+  )
+);

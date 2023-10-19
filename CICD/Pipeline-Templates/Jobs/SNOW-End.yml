@@ -1,0 +1,29 @@
+parameters:
+  - name: Environment
+    default: prd
+  - name: CanaryMode
+    default: false
+
+jobs:
+- deployment: Deploy_SNOW_End
+  ${{ if eq(parameters['CanaryMode'], 'true') }}:
+    pool:
+      name: $(canaryPool)
+  displayName: "Service Now End for ${{ parameters.Environment }}"
+  environment: "$(Build.DefinitionName)-${{ parameters.Environment }}"
+  workspace:
+    clean: all
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - script: echo "Hello world"
+      on:
+        success:
+          pool: server
+          steps:
+          - template: ../../Standalone/Steps/ServiceNow/Deploy-Success.yml@DevSecOpsYAML
+        failure:
+          pool: server
+          steps:
+          - template: ../../Standalone/Steps/ServiceNow/Deploy-Failed.yml@DevSecOpsYAML

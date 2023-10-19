@@ -1,0 +1,30 @@
+:host {
+  display: inline-block;
+
+  [class*='material-symbols-'] {
+    display: inline-block;
+    font-weight: normal;
+    font-size: inherit;
+    font-style: normal;
+    line-height: inherit;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    direction: ltr;
+    font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .material-symbols-outlined {
+    font-family: "Material Symbols Outlined";
+  }
+
+  .material-symbols-sharp {
+    font-family: "Material Symbols Sharp";
+  }
+
+  .material-symbols-rounded {
+    font-family: "Material Symbols Rounded";
+  }
+}

@@ -1,0 +1,60 @@
+:host {
+  display: block;
+
+  .notification {
+    background-color: $color-semantic-negative-01;
+    border-radius: pxToRem(8);
+    display: flex;
+    gap: pxToRem(16);
+    align-items: flex-start;
+    padding: pxToRem(12) pxToRem(16);
+
+  .notification-icon {
+    font-size: pxToRem(24);
+  }
+  
+    .notification-content {
+      display: flex;
+      flex-direction: column;
+
+      h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+      }
+  
+      .notification-header {
+        color: $color-neutral-100-black;
+        font-family: $typography-body-16-font-family;
+        font-size: pxToRem($typography-heading-16-font-size);
+        font-style: $typography-heading-16-font-style;
+        font-weight: $typography-body-16-semibold-font-weight;
+        letter-spacing: pxToRem(0.25);
+        line-height: getLineHeightRatio($typography-heading-16-line-height, $typography-heading-16-font-size);
+        margin-bottom: pxToRem(4);
+        padding-top: pxToRem(2);
+      }
+
+
+    }
+
+    &.low {
+      background-color: $color-neutral-transparent-black-10;
+    }
+
+    &.medium {
+      background-color: $color-semantic-warning-01;
+    }
+
+    &.high {
+      background-color: $color-semantic-negative-01;
+    }
+  }
+  ::slotted(p) {
+    color: $color-neutral-80;
+    font-family: $typography-body-14-font-family;
+    font-size: pxToRem(14);
+    font-style: $typography-body-14-font-style;
+    font-weight: $typography-body-14-font-weight;
+    line-height: getLineHeightRatio($typography-body-14-line-height, $typography-body-14-font-size);
+    margin: 0;
+  }
+}

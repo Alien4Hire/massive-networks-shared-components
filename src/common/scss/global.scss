@@ -1,0 +1,67 @@
+@forward 'tokens/all-tokens';
+@use 'tokens/all-tokens' as *;
+
+$default-body-font-size: $typography-body-16-font-size;
+
+// Convert px values to rem values
+@function pxToRem($value) {
+  @return calc($value / $default-body-font-size) * 1rem;
+}
+
+@function getLineHeightRatio($fontSize, $lineHeight) {
+  @return calc($fontSize / $lineHeight);
+}
+
+// Global styles -- use sparingly
+*,*:after,*:before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $typography-body-16-font-family, sans-serif;
+  font-size: $default-body-font-size;
+  line-height: getLineHeightRatio($typography-body-16-font-size, $typography-body-16-line-height);
+}
+
+h1 {
+  font-family: $typography-heading-48-font-family, sans-serif;
+  font-size: pxToRem($typography-heading-48-font-size);
+  font-style: $typography-heading-48-font-style;
+  font-weight: $typography-heading-48-font-weight;
+  line-height: getLineHeightRatio($typography-heading-48-font-size, $typography-heading-48-line-height);
+  letter-spacing: $typography-heading-48-letter-spacing;
+  text-decoration: $typography-heading-48-text-decoration;
+}
+
+a {
+  display: inline;
+  text-decoration: $typography-body-16-underlined-text-decoration;
+  color: $color-primary-50;
+
+  &:hover {
+      color: $color-primary-40;
+  }
+
+  &:focus {
+      color: $color-primary-50;
+      outline: none;
+      border: pxToRem(2) solid $color-primary-50;
+      box-shadow: none;
+  }
+
+  &:active {
+      color: $color-neutral-90;
+  }
+
+  &.disabled {
+      color: $color-neutral-60;
+      pointer-events: none;
+      cursor: not-allowed;
+  }
+
+  .material-symbols-outlined {
+      vertical-align: middle;
+      margin-left: pxToRem(4);
+      margin-bottom: pxToRem(3);
+  }
+}

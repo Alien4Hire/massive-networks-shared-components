@@ -1,0 +1,39 @@
+
+/**
+ * Do not edit directly
+ * Generated on Mon, 11 Sep 2023 22:35:13 GMT
+ */
+
+$gradient-gradients-haze: #e0f0ffff 5%, #ebf0ffff 47%, #fbfdffff 100% !default; // Backgrounds
+$gradient-gradients-price-card-gradient: #e7f0feff, #d7eafeff 45%, #e1f6fdff 72%, #ecf9feff 100% !default;
+$gradient-gradients-main: #1745e9ff, #6bccf6ff 51%, #caf9ffff 97% !default;
+$gradient-gradients-main-2: #ffffffff 9%, #c1cfffff 45%, #aee7ffff 70%, #e5fff1ff 97% !default;
+$gradient-gradients-purple: #ffffffff 9%, #c1cfffff 45%, #dbd6ffff 70%, #ebe3ffff 97% !default;
+$gradient-gradients-green: #ffffffff 9%, #99d1daff 45%, #aefaffff 70%, #dafbfeff 97% !default;
+$gradient-gradients-red: #ffffffff 9%, #ffc1c1ff 45%, #ffdfaeff 70%, #fff8e5ff 97% !default;
+$gradient-gradients-red-to-green: #ffffffff 9%, #c1fffbff 45%, #ffd0d0ff 97% !default;
+$gradient-gradients-orange-to-teal: #ffffffff 9%, #c1f0ffff 45%, #ffd6beff 97% !default;
+$gradient-gradients-orange-to-blue: #ffffffff 9%, #c1e5ffff 45%, #ffe1beff 97% !default;
+$gradient-gradients-orange-to-purple: #ffffffff 9%, #c1cfffff 45%, #ffe1c6ff 97% !default;
+$gradient-gradients-yellow-to-purple: #ffffffff 9%, #d0d5ffff 45%, #fffce3ff 97% !default;
+$gradient-gradients-archive: #b0d0ff4d, #98e6ff00 100% !default; // Selected
+
+$tokens: (
+  'gradient': (
+    'gradients': (
+      'haze': $gradient-gradients-haze,
+      'price-card-gradient': $gradient-gradients-price-card-gradient,
+      'main': $gradient-gradients-main,
+      'main-2': $gradient-gradients-main-2,
+      'purple': $gradient-gradients-purple,
+      'green': $gradient-gradients-green,
+      'red': $gradient-gradients-red,
+      'red-to-green': $gradient-gradients-red-to-green,
+      'orange-to-teal': $gradient-gradients-orange-to-teal,
+      'orange-to-blue': $gradient-gradients-orange-to-blue,
+      'orange-to-purple': $gradient-gradients-orange-to-purple,
+      'yellow-to-purple': $gradient-gradients-yellow-to-purple,
+      'archive': $gradient-gradients-archive
+    )
+  )
+);

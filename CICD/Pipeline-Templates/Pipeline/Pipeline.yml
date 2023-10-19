@@ -1,0 +1,70 @@
+parameters:
+  - name: Environments
+    type: object
+    default: {}
+  - name: TimeoutInMinutes
+    type: string
+    default: 60
+  - name: nonProdInParallel
+    type: boolean
+    default: false
+  - name: VariableLocation
+    default: 
+  - name: MakeDevGo
+    default: false
+  - name: MakeQAGo
+    default: false
+  - name: CanaryMode
+    type: boolean
+    default: false
+  - name: EnableSNOW
+    type: boolean
+    default: false
+  - name: RunPostDeploymentValidation
+    type: boolean
+    default: false
+  - name: AssignmentGroup
+    default:
+  - name: ChangeWindow
+    default:
+  - name: BusinessHourJustification
+    default:
+  - name: ChangeReason
+    default:
+  - name: ReleaseComments
+    default:
+  - name: CIName
+    default:
+stages:
+- template: ../Stages/Build.yml@self
+  parameters:
+    CanaryMode: ${{ parameters.CanaryMode }}
+    VariableLocation: ${{ parameters.VariableLocation }}
+    Environments: ${{ parameters.Environments }}
+- ${{ if ne(variables['Build.Reason'], 'PullRequest')}}:
+  - ${{ each environment in parameters.environments }}:
+    - template: ../Stages/Deploy.yml@self
+      parameters:
+        TimeoutInMinutes: ${{ parameters.TimeoutInMinutes }}
+        VariableLocation: ${{ parameters.VariableLocation }}
+        nonProdInParallel: ${{ parameters.nonProdInParallel }}
+        MakeDevGo: ${{ parameters.MakeDevGo }}
+        MakeQAGo: ${{ parameters.MakeQAGo }}
+        Environment: ${{ environment.env }}
+        CanaryMode: ${{ parameters.CanaryMode }}
+        RunPostDeploymentValidation: ${{ parameters.RunPostDeploymentValidation }}
+        EnableSNOW: ${{ parameters.EnableSNOW }}
+        AssignmentGroup: ${{ parameters.AssignmentGroup }}
+        ChangeWindow: ${{ parameters.ChangeWindow }}
+        BusinessHourJustification: ${{ parameters.BusinessHourJustification }}
+        ChangeReason: ${{ parameters.ChangeReason }}
+        ReleaseComments: ${{ parameters.ReleaseComments }}
+        CIName: ${{ parameters.CIName }}
+- ${{ elseif eq(variables['Build.Reason'], 'PullRequest')}}:
+  - ${{ each environment in parameters.environments }}:
+    - ${{ if eq(parameters['environment.PRValidation'], 'true')}}:
+      - template: ../Stages/PR-Validation.yml@self
+        parameters:
+          Environment: ${{ environment.env }}
+          TimeoutInMinutes: ${{ parameters.TimeoutInMinutes }}
+          VariableLocation: ${{ parameters.VariableLocation }}

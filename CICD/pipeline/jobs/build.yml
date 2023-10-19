@@ -1,0 +1,80 @@
+parameters:
+  - name: CanaryMode
+    default: false
+  - name: VariableLocation
+    default: ''
+  - name: Environments
+    default: {}
+    type: object
+
+jobs:
+  - job: ValidateVersionNumber
+    displayName: 'Validate npm version'
+    steps:
+      - task: NodeTool@0
+        displayName: 'Install Node.js'
+        inputs:
+          versionSpec: '18.x'
+      - bash: |
+          existing_versions=$(npm view massive-networks-shared-web-components versions --json)
+          echo "Existing Versions:"
+          echo "$existing_versions"
+          current_version=$(npm pkg get version --workspaces=false | tr -d \")
+          echo "Current Version:"
+          echo "$current_version"
+          if [[ "$existing_versions" == *"$current_version"* ]]; then
+              echo "Error. Version already exists in npm."
+              exit 1;
+          else
+              echo "Version is valid."
+          fi
+        displayName: 'Compare Versions'
+
+  - job: BuildApplication
+    displayName: 'Build'
+    steps:
+      - task: NodeTool@0
+        displayName: 'Install Node.js'
+        inputs:
+          versionSpec: '18.x'
+      - task: Cache@2
+        displayName: Cache npm
+        inputs:
+          key: 'npm | "$(Agent.OS)" | package-lock.json'
+          restoreKeys: |
+            npm | "$(Agent.OS)"
+          path: $(npm_config_cache)
+      - task: Npm@1
+        displayName: 'npm ci'
+        inputs:
+          command: custom
+          customCommand: 'ci --cache $(npm_config_cache)'
+          verbose: false
+      - task: Npm@1
+        displayName: 'npm run build-all'
+        inputs:
+          command: 'custom'
+          customCommand: 'run build-all'
+      - task: ArchiveFiles@2
+        displayName: 'MASS storybook'
+        inputs:
+          rootFolderOrFile: storybook-static
+          archiveType: 'tar'
+          tarCompression: 'gz'
+          includeRootFolder: false
+          replaceExistingArchive: true
+          archiveFile: '$(Build.ArtifactStagingDirectory)/storybook.tar.gz'
+      - task: ArchiveFiles@2
+        displayName: 'MASS documentation'
+        inputs:
+          rootFolderOrFile: documentation
+          archiveType: 'tar'
+          tarCompression: 'gz'
+          includeRootFolder: false
+          replaceExistingArchive: true
+          archiveFile: '$(Build.ArtifactStagingDirectory)/documentation.tar.gz'
+      - task: PublishPipelineArtifact@1
+        inputs:
+          targetPath: $(Build.ArtifactStagingDirectory)
+          publishLocation: 'pipeline'
+          artifact: 'build'

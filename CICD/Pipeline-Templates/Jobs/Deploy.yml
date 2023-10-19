@@ -1,0 +1,39 @@
+parameters:
+  - name: Environment
+    default: Dev
+  - name: CanaryMode
+    default: false
+  - name: TimeoutInMinutes
+    type: string
+    default: 60
+  - name: VariableLocation
+    default: Variables
+  - name: EnableSNOW
+    type: boolean
+    default: false
+  - name: AssignmentGroup
+    default:
+  - name: ChangeWindow
+    default:
+  - name: BusinessHourJustification
+    default:
+  - name: ChangeReason
+    default:
+  - name: ReleaseComments
+    default:
+  - name: CIName
+    default:
+
+jobs:
+- template: ../Jobs/Deploy.yml@self
+  parameters:
+    Environment: ${{ parameters.Environment }}
+    CanaryMode: ${{ parameters.CanaryMode }}
+    TimeoutInMinutes: ${{ parameters.TimeoutInMinutes }}
+    EnableSNOW: ${{ parameters.EnableSNOW }}
+    AssignmentGroup: ${{ parameters.AssignmentGroup }}
+    ChangeWindow: ${{ parameters.ChangeWindow }}
+    BusinessHourJustification: ${{ parameters.BusinessHourJustification }}
+    ChangeReason: ${{ parameters.ChangeReason }}
+    ReleaseComments: ${{ parameters.ReleaseComments }}
+    CIName: ${{ parameters.CIName }}
