@@ -12,7 +12,7 @@ export class GoogleMap {
 
   async componentDidLoad() {
     const loader = new Loader({
-      apiKey: "AIzaSyAN3HNH6G0CrSsvycM-Brv_JM9BQNg0iB8",
+      apiKey: process.env.REACT_APP_GOOGLE_MAPS_API,
       version: "weekly"
     });
 
