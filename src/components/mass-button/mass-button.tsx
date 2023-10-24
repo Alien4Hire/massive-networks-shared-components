@@ -68,6 +68,7 @@ export class MassButton {
       dark: this.hover ? "neutral-00-white" : "neutral-90",
       github: "neutral-00-white",
       green: this.hover ? "neutral-00-white" : "neutral-90",
+      red: this.hover ? "neutral-00-white" : "neutral-90",
     }
     const Rounded = this.isRounded ? "rounded" : "";
     const Dropdown = this.isDropdown ? "dropdown" : "";

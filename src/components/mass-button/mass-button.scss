@@ -134,7 +134,7 @@ button {
     }
   }
   &.green {
-    color: $color-neutral-90;
+    color: $color-neutral-00-white;
     background-color: $color-neutral-green-20;
     display: inline-flex;
     justify-content: center;
@@ -155,8 +155,31 @@ button {
       background-color: $color-neutral-05;
     }
   }
+  &.red {
+    color: $color-neutral-00-white;
+    background-color: $color-neutral-red-20;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      color: $color-neutral-00-white;
+      background-color: $color-neutral-red-20;
+    }
+
+    &:focus {
+      color: $color-neutral-00-white;
+      background-color: $color-neutral-red-20;
+    }
+
+    &:disabled {
+      color: $color-neutral-60;
+      background-color: $color-neutral-05;
+    }
+  }
   &.rounded {
     border-radius: 24px;
   }
+
 }
 

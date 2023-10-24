@@ -47,6 +47,13 @@ GreenButton.args = {
   type: 'green'
 };
 
+export const RedButton = Template.bind({});
+RedButton.args = {
+  ...DefaultButton.args,
+  isRounded: true,
+  type: 'red'
+};
+
 export const ButtonWithIcon = Template.bind({});
 ButtonWithIcon.args = {
   ...DefaultButton.args,

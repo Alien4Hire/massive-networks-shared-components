@@ -5,6 +5,7 @@ import { TextField } from '../mass-text-field';
 const componentUnderTest = 'mass-text-field';
 const inputSelector = 'input';
 const labelSelector = 'label';
+const divSelector = 'div';
 const errorMessageSelector = '.error-text'
 const successMessageSelector = '.success-text';
 const helpTextSelector = '.help-text';
@@ -688,4 +689,29 @@ describe(componentUnderTest, () => {
     expect(inputElement.getAttribute('required')).not.toBeNull();
   });
   });
+
+  describe('labelPosition', () => {
+    it('when labelPosition is "top", then I expect the label to be rendered above the input', async () => {
+      const page = await newSpecPage({
+        components: [TextField],
+        html: `<mass-text-field input-id="test" label-text="This is a test"></mass-text-field>`,
+      });
+
+      const divElement = page.root.shadowRoot.querySelector(divSelector);
+  
+      expect(divElement.getAttribute('class')).toBe('position-top');
+    });
+
+    it('when labelPosition is "left", then I expect the label to be rendered left of the input', async () => {
+      const page = await newSpecPage({
+        components: [TextField],
+        html: `<mass-text-field input-id="test" label-text="This is a test" label-position='left'></mass-text-field>`,
+      });
+
+      const divElement = page.root.shadowRoot.querySelector(divSelector);
+  
+      expect(divElement.getAttribute('class')).toBe('position-left');
+    });
+  });
+
 });

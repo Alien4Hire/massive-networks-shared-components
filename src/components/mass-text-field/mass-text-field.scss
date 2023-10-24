@@ -18,6 +18,21 @@
     }
   }
 
+  div {
+    &.position-top {
+      order: -1
+    }
+
+    &.position-left {
+      display: flex;
+      flex-direction: row; 
+      gap: pxToRem(8);
+      label {
+        align-self: center;
+      }
+    }
+  }
+
   input {
     align-items: center;
     align-self: stretch;
