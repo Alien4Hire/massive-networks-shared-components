@@ -243,6 +243,7 @@ export namespace Components {
           * The validation state of the field.  Possible values: undefined | true | false  Defaults to undefined.  If undefined, the field will have default styling.  If true, the field will be styled as valid.  If false, the field will be styled as invalid.
          */
         "isValid": undefined | boolean;
+        "labelPosition": 'top' | 'left';
         /**
           * The text that appears in the field's label.   Required.
          */
@@ -689,6 +690,7 @@ declare namespace LocalJSX {
           * The validation state of the field.  Possible values: undefined | true | false  Defaults to undefined.  If undefined, the field will have default styling.  If true, the field will be styled as valid.  If false, the field will be styled as invalid.
          */
         "isValid"?: undefined | boolean;
+        "labelPosition"?: 'top' | 'left';
         /**
           * The text that appears in the field's label.   Required.
          */

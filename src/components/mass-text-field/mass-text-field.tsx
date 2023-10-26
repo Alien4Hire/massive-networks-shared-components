@@ -224,6 +224,8 @@ export class TextField {
    */
   @Prop() successText: string;
 
+  @Prop() labelPosition: 'top' | 'left' = 'top';
+
   private helpId: string = `${this.inputId}-help`;
   private errorId: string = `${this.inputId}-error`;
   private successId: string = `${this.inputId}-success`;
@@ -284,27 +286,29 @@ export class TextField {
   render() {
     return (
       <Host>
-        <label
-          class={this.isDisabled ? "disabled" : ""}
-          htmlFor={this.inputId}>
-          {this.labelText}
-          {this.isRequired && <abbr title="Required">*</abbr>}
-        </label>
-        <input
-          aria-describedby={this.getAriaDescribedBy()}
-          aria-invalid={this.getAriaInvalid()}
-          aria-errormessage={this.getAriaErrorMessage()}
-          disabled={this.isDisabled}
-          id={this.inputId}
-          maxLength={this.minLength}
-          minLength={this.maxLength}
-          name={this.inputId}
-          type={this.inputType}
-          pattern={this.pattern}
-          placeholder={this.placeholderText}
-          required={this.isRequired}
-          value={this.value}
-        />
+        <div class={`position-${this.labelPosition}`}>
+          <label
+            class={`${this.isDisabled &&  "disabled"}`}
+            htmlFor={this.inputId}>
+            {this.labelText}
+            {this.isRequired && <abbr title="Required">*</abbr>}
+          </label>
+          <input
+            aria-describedby={this.getAriaDescribedBy()}
+            aria-invalid={this.getAriaInvalid()}
+            aria-errormessage={this.getAriaErrorMessage()}
+            disabled={this.isDisabled}
+            id={this.inputId}
+            maxLength={this.minLength}
+            minLength={this.maxLength}
+            name={this.inputId}
+            type={this.inputType}
+            pattern={this.pattern}
+            placeholder={this.placeholderText}
+            required={this.isRequired}
+            value={this.value}
+          />
+        </div>
         {!!this.helpText === true && <span id={this.helpId} class="help-text">{this.helpText}</span>}
         {this.isValid === false && !!this.errorText && 
           <span id={this.errorId} class="error-text">

@@ -15,6 +15,7 @@ const defaultArgs = {
   inputValue: '',
   isDisabled: false,
   maxLength: 50,
+  labelPosition: 'top'
 }
 
 export default meta;
@@ -74,3 +75,10 @@ export const WithSuccessMessageAndHelpText: Story = {
     helpText: 'This is help text'
   }
 }
+
+export const LabelOnTheLeft: Story = {
+  args: {
+    ...defaultArgs,
+    labelPosition: 'left'
+  }
+};
