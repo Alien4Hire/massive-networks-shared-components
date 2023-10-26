@@ -18,12 +18,23 @@ export const Default: Story = {
   }
 };
 
-export const WithInitialCoordinates: Story = {
+export const WithDefaultLocation: Story = {
   args: {
     ...defaultArgs,
+    center: { lat: 37.7849, lng: -122.4294 },
     latitude: 37.7749,
     longitude: -122.4194,
   }
 };
 
-// Add more stories as needed
+export const WithMultipleCoordinates: Story = {
+  args: {
+    ...defaultArgs,
+    center: { lat: 37.7849, lng: -122.4294 },
+    coordinates: [
+      { lat: 37.7749, lng: -124.4194 },
+      { lat: 37.7849, lng: -122.4294 } 
+    ]
+  }
+};
+

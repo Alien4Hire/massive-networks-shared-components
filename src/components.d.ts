@@ -63,6 +63,8 @@ export namespace Components {
         "text": string | string[];
     }
     interface MassGoogleMap {
+        "center": { lat: number, lng: number };
+        "coordinates": { lat: number, lng: number }[];
     }
     interface MassIcon {
         /**
@@ -494,6 +496,8 @@ declare namespace LocalJSX {
         "text"?: string | string[];
     }
     interface MassGoogleMap {
+        "center"?: { lat: number, lng: number };
+        "coordinates"?: { lat: number, lng: number }[];
     }
     interface MassIcon {
         /**

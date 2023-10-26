@@ -1,5 +1,6 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
+import dotenvPlugin from 'rollup-plugin-dotenv';
 
 export const config: Config = {
   namespace: 'mass',
@@ -33,7 +34,8 @@ export const config: Config = {
         'src/common/scss/tokens.scss',
         'src/common/scss/colors.scss'
       ]
-    })
+    }),
+    dotenvPlugin(),
   ],
   testing: {
     browserHeadless: "new",

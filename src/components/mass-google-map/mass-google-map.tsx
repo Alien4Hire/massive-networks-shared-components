@@ -1,4 +1,4 @@
-import { Component, h, State } from '@stencil/core';
+import { Component, h, State, Prop } from '@stencil/core';
 import { Loader } from '@googlemaps/js-api-loader';
 
 @Component({
@@ -8,6 +8,10 @@ import { Loader } from '@googlemaps/js-api-loader';
 })
 export class GoogleMap {
   @State() map: google.maps.Map;
+  @State() markers: google.maps.Marker[] = [];
+  @Prop() center: { lat: number, lng: number } = { lat: -34.397, lng: 150.644 };
+  @Prop() coordinates: { lat: number, lng: number }[] = [];
+
   mapElement: HTMLElement;
 
   async componentDidLoad() {
@@ -21,10 +25,21 @@ export class GoogleMap {
     });
 
     this.map = new google.maps.Map(this.mapElement, {
-      center: { lat: -34.397, lng: 150.644 },
+      center: this.center,
       zoom: 8
     });
+
+    this.coordinates.forEach(coord => this.addMarker(coord.lat, coord.lng));
   }
+
+  addMarker(lat: number, lng: number) {
+    const marker = new google.maps.Marker({
+      position: { lat, lng },
+      map: this.map
+    });
+    this.markers.push(marker);
+  }
+  
 
   render() {
     return (
