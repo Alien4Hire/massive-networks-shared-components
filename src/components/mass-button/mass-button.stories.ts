@@ -67,14 +67,6 @@ RoundedButtonWithIcon.args = {
   iconName: 'warning'
 };
 
-export const ButtonWithDropdownIcon = Template.bind({});
-ButtonWithDropdownIcon.args = {
-  ...DefaultButton.args,
-  isDropdown: true,
-  isRounded: false,
-  iconName: 'expand_more'
-};
-
 export const ButtonThatIsDisabled = Template.bind({});
 ButtonThatIsDisabled.args = {
   ...DefaultButton.args,
