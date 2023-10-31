@@ -1,6 +1,8 @@
 import { Component, Host, Prop, h, Element, Watch, State } from '@stencil/core';
 // import * as iconList from './icon-list/icon-list';
 import GithubIcon from './icons/github.svg'
+import Wifi from './icons/wifi.svg'
+import { mapCircle } from './icons/map-circle'
 
 @Component({
   tag: 'mass-icon',
@@ -103,11 +105,18 @@ export class Icon {
     let IsIcon;
     try {
       const IconSVGList = {
-        github: GithubIcon
+        github: GithubIcon,
+        mapCircle: mapCircle(),
+        wifi: Wifi,
       }
       IsIcon = IconSVGList[this.iconName];
       if (IsIcon) {
-        this.svgContent = IsIcon;
+        if (this.iconName === 'mapCircle') {
+          this.svgContent = this.fillSvgContent(mapCircle(this.color || undefined))
+        } else {
+          this.svgContent = IsIcon;
+        }
+       
       } else {
         this.validateIconName(this.iconName);
         !this.isPresentational && this.conditionallyRequireAltText(this.altText);
@@ -115,6 +124,10 @@ export class Icon {
     } catch (error) {
       console.warn(`Failed to load SVG for icon: ${this.iconName}`, error);
     }
+  }
+
+  fillSvgContent(svgContent: string) {
+    return svgContent.replace(/fill="#000000"/g, `fill="${this.color}"`);
   }
   /**
    * The color of the icon.
@@ -214,11 +227,21 @@ export class Icon {
 
   render() {
     if (this.svgContent) {
-      return (
-        <Host>
-          <img src={this.svgContent}/>
-        </Host>
-      );
+      console.log(this.svgContent, 'svgContent')
+      if (/^data:image\/svg\+xml;base64,[a-zA-Z0-9+/]+={0,2}$/.test(this.svgContent)) {
+        return (
+          <Host>
+            <img src={this.svgContent} />
+          </Host>
+        )
+      } else {
+        return (
+          <Host>
+            <div innerHTML={this.svgContent}></div>
+          </Host>
+        );
+      }
+
     }
 
     return (

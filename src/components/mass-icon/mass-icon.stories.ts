@@ -25,31 +25,12 @@ const argTypes = {
       type: 'select',
     },
     options: [
-      'neutral-00-white',
-      'neutral-10',
-      'neutral-20',
-      'neutral-60',
-      'neutral-70',
-      'neutral-80',
-      'neutral-90',
-      'neutral-100-black',
-      'neutral-transparent-black-10',
-      'neutral-transparent-black-20',
-      'primary-20',
-      'primary-30',
-      'primary-40',
-      'primary-50',
-      'primary-60',
-      'semantic-positive-01',
-      'semantic-positive-02',
-      'semantic-positive-03',
-      'semantic-negative-01',
-      'semantic-negative-02',
-      'semantic-negative-03',
-      'semantic-warning-01',
-      'semantic-warning-02',
-      'semantic-warning-03',
-
+    'white',
+    'black',
+    'purple',
+    'green',
+    'orange',
+    'red'
     ]
   },
   weight: {
@@ -113,5 +94,68 @@ export const OutlinedIcon: Story = {
   args: {
     ...defaultArgs,
     iconStyle: "outlined"
+  }
+}
+
+export const FiberBuilding: Story = {
+  argTypes,
+  args: {
+    ...defaultArgs,
+    iconName: "mapCircle",
+    color: 'purple'
+  }
+}
+
+export const FiberDatCenter: Story = {
+  argTypes,
+  args: {
+    ...defaultArgs,
+    iconName: "mapCircle",
+    color: 'green'
+  }
+}
+
+export const FiberCellSite: Story = {
+  argTypes,
+  args: {
+    ...defaultArgs,
+    iconName: "mapCircle",
+    color: 'orange'
+  }
+}
+
+export const FiberPOP: Story = {
+  argTypes,
+  args: {
+    ...defaultArgs,
+    iconName: "mapCircle",
+    color: 'red'
+  }
+}
+
+export const EthernetWireless: Story = {
+  argTypes,
+  args: {
+    ...defaultArgs,
+    iconName: "wifi",
+    color: 'purple'
+  }
+}
+
+export const EthernetCopper: Story = {
+  argTypes,
+  args: {
+    ...defaultArgs,
+    iconName: "mapCircle",
+    color: 'purple'
+  }
+}
+
+export const EthernetCoax: Story = {
+  argTypes,
+  args: {
+    ...defaultArgs,
+    iconName: "mapCircle",
+    color: 'black'
   }
 }
