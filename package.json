@@ -1,15 +1,15 @@
 {
   "name": "massive-networks-shared-web-components",
-  "version": "0.1.0",
+  "version": "0.1.6",
   "description": "MASS Shared Web Components",
-  "type": "module",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
   "es2017": "dist/esm/index.mjs",
-  "types": "dist/types/index.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
+  "types": "dist/types/components.d.ts",
+  "unpkg": "dist/mass/mass.esm.js",
   "collection:main": "dist/collection/index.js",
+  "collection": "dist/collection/collection-manifest.json",
   "engines": {
     "node": ">=18.0.0"
   },
