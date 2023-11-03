@@ -26,6 +26,7 @@
 
  - [mass-button](../mass-button)
  - [mass-checkbox-group](../mass-checkbox)
+ - [mass-legend](../mass-legend)
  - [mass-modal](../mass-modal)
  - [mass-notification](../mass-notification)
  - [mass-question-toggle](../mass-question-toggle)
@@ -37,6 +38,7 @@
 graph TD;
   mass-button --> mass-icon
   mass-checkbox-group --> mass-icon
+  mass-legend --> mass-icon
   mass-modal --> mass-icon
   mass-notification --> mass-icon
   mass-question-toggle --> mass-icon

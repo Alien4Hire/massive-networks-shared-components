@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
+import { defaultArgs as legendDefaultArgs } from '../mass-legend/mass-legend.stories'
 
 type Story = StoryObj;
 
@@ -35,6 +36,13 @@ export const WithMultipleCoordinates: Story = {
       { lat: 37.7749, lng: -124.4194 },
       { lat: 37.7849, lng: -122.4294 } 
     ]
+  }
+};
+
+export const WithLegend: Story = {
+  args: {
+    ...defaultArgs,
+    legend: legendDefaultArgs.items,
   }
 };
 

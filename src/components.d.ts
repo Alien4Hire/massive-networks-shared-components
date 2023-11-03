@@ -5,6 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { MassLegendItemType } from "./components/mass-legend/mass-legend";
+import { MassLegendItemType as MassLegendItemType1 } from "./components/mass-legend/mass-legend";
+export { MassLegendItemType } from "./components/mass-legend/mass-legend";
+export { MassLegendItemType as MassLegendItemType1 } from "./components/mass-legend/mass-legend";
 export namespace Components {
     interface MassButton {
         /**
@@ -63,8 +67,9 @@ export namespace Components {
         "text": string | string[];
     }
     interface MassGoogleMap {
-        "center": { lat: number, lng: number };
-        "coordinates": { lat: number, lng: number }[];
+        "center": { lat: number; lng: number };
+        "coordinates": { lat: number; lng: number }[];
+        "legend": MassLegendItemType[];
     }
     interface MassIcon {
         /**
@@ -120,6 +125,9 @@ export namespace Components {
           * @param src
          */
         "src": string;
+    }
+    interface MassLegend {
+        "items": MassLegendItemType1[];
     }
     interface MassModal {
         /**
@@ -381,6 +389,12 @@ declare global {
         prototype: HTMLMassImageElement;
         new (): HTMLMassImageElement;
     };
+    interface HTMLMassLegendElement extends Components.MassLegend, HTMLStencilElement {
+    }
+    var HTMLMassLegendElement: {
+        prototype: HTMLMassLegendElement;
+        new (): HTMLMassLegendElement;
+    };
     interface HTMLMassModalElement extends Components.MassModal, HTMLStencilElement {
     }
     var HTMLMassModalElement: {
@@ -423,6 +437,7 @@ declare global {
         "mass-google-map": HTMLMassGoogleMapElement;
         "mass-icon": HTMLMassIconElement;
         "mass-image": HTMLMassImageElement;
+        "mass-legend": HTMLMassLegendElement;
         "mass-modal": HTMLMassModalElement;
         "mass-notification": HTMLMassNotificationElement;
         "mass-question-toggle": HTMLMassQuestionToggleElement;
@@ -497,8 +512,9 @@ declare namespace LocalJSX {
         "text"?: string | string[];
     }
     interface MassGoogleMap {
-        "center"?: { lat: number, lng: number };
-        "coordinates"?: { lat: number, lng: number }[];
+        "center"?: { lat: number; lng: number };
+        "coordinates"?: { lat: number; lng: number }[];
+        "legend"?: MassLegendItemType[];
     }
     interface MassIcon {
         /**
@@ -554,6 +570,9 @@ declare namespace LocalJSX {
           * @param src
          */
         "src": string;
+    }
+    interface MassLegend {
+        "items"?: MassLegendItemType1[];
     }
     interface MassModal {
         /**
@@ -786,6 +805,7 @@ declare namespace LocalJSX {
         "mass-google-map": MassGoogleMap;
         "mass-icon": MassIcon;
         "mass-image": MassImage;
+        "mass-legend": MassLegend;
         "mass-modal": MassModal;
         "mass-notification": MassNotification;
         "mass-question-toggle": MassQuestionToggle;
@@ -803,6 +823,7 @@ declare module "@stencil/core" {
             "mass-google-map": LocalJSX.MassGoogleMap & JSXBase.HTMLAttributes<HTMLMassGoogleMapElement>;
             "mass-icon": LocalJSX.MassIcon & JSXBase.HTMLAttributes<HTMLMassIconElement>;
             "mass-image": LocalJSX.MassImage & JSXBase.HTMLAttributes<HTMLMassImageElement>;
+            "mass-legend": LocalJSX.MassLegend & JSXBase.HTMLAttributes<HTMLMassLegendElement>;
             "mass-modal": LocalJSX.MassModal & JSXBase.HTMLAttributes<HTMLMassModalElement>;
             "mass-notification": LocalJSX.MassNotification & JSXBase.HTMLAttributes<HTMLMassNotificationElement>;
             "mass-question-toggle": LocalJSX.MassQuestionToggle & JSXBase.HTMLAttributes<HTMLMassQuestionToggleElement>;
