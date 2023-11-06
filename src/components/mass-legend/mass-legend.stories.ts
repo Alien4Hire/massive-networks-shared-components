@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
-import { MassLegendItemType } from './mass-legend';
 
 type Story = StoryObj;
 
@@ -8,10 +7,12 @@ const meta: Meta = {
   title: 'Components/mass-legend',
 };
 
-
-
-export const defaultArgs: {
-  items: MassLegendItemType[];
+const defaultArgs: {
+  items: {
+    name: string;
+    color: string;
+    title: string;
+  }[];
 } = {
   items: [
     {
@@ -56,7 +57,6 @@ export const defaultArgs: {
 export default meta;
 
 export const Default: Story = {
-  
   args: {
     ...defaultArgs,
   },
