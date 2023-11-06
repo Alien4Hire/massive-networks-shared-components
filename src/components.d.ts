@@ -126,6 +126,8 @@ export namespace Components {
          */
         "src": string;
     }
+    interface MassLeftmenu {
+    }
     interface MassLegend {
         "items": MassLegendItemType1[];
     }
@@ -389,6 +391,12 @@ declare global {
         prototype: HTMLMassImageElement;
         new (): HTMLMassImageElement;
     };
+    interface HTMLMassLeftmenuElement extends Components.MassLeftmenu, HTMLStencilElement {
+    }
+    var HTMLMassLeftmenuElement: {
+        prototype: HTMLMassLeftmenuElement;
+        new (): HTMLMassLeftmenuElement;
+    };
     interface HTMLMassLegendElement extends Components.MassLegend, HTMLStencilElement {
     }
     var HTMLMassLegendElement: {
@@ -437,6 +445,7 @@ declare global {
         "mass-google-map": HTMLMassGoogleMapElement;
         "mass-icon": HTMLMassIconElement;
         "mass-image": HTMLMassImageElement;
+        "mass-leftmenu": HTMLMassLeftmenuElement;
         "mass-legend": HTMLMassLegendElement;
         "mass-modal": HTMLMassModalElement;
         "mass-notification": HTMLMassNotificationElement;
@@ -570,6 +579,8 @@ declare namespace LocalJSX {
           * @param src
          */
         "src": string;
+    }
+    interface MassLeftmenu {
     }
     interface MassLegend {
         "items"?: MassLegendItemType1[];
@@ -805,6 +816,7 @@ declare namespace LocalJSX {
         "mass-google-map": MassGoogleMap;
         "mass-icon": MassIcon;
         "mass-image": MassImage;
+        "mass-leftmenu": MassLeftmenu;
         "mass-legend": MassLegend;
         "mass-modal": MassModal;
         "mass-notification": MassNotification;
@@ -823,6 +835,7 @@ declare module "@stencil/core" {
             "mass-google-map": LocalJSX.MassGoogleMap & JSXBase.HTMLAttributes<HTMLMassGoogleMapElement>;
             "mass-icon": LocalJSX.MassIcon & JSXBase.HTMLAttributes<HTMLMassIconElement>;
             "mass-image": LocalJSX.MassImage & JSXBase.HTMLAttributes<HTMLMassImageElement>;
+            "mass-leftmenu": LocalJSX.MassLeftmenu & JSXBase.HTMLAttributes<HTMLMassLeftmenuElement>;
             "mass-legend": LocalJSX.MassLegend & JSXBase.HTMLAttributes<HTMLMassLegendElement>;
             "mass-modal": LocalJSX.MassModal & JSXBase.HTMLAttributes<HTMLMassModalElement>;
             "mass-notification": LocalJSX.MassNotification & JSXBase.HTMLAttributes<HTMLMassNotificationElement>;
