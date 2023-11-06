@@ -45,7 +45,7 @@ export class GoogleMap {
   render() {
     return (
       <div>
-        {this.legend && <mass-legend items={this.legend} />}
+        {this.legend.length > 0 && <mass-legend items={this.legend} />}
         <div id="map" ref={el => (this.mapElement = el as HTMLElement)} />
       </div>
     );
