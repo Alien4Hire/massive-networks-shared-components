@@ -1,0 +1,190 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: pxToRem(8);
+
+  div {
+    width: 100%;
+    &.position-top {
+      order: -1
+    }
+
+    &.position-left {
+      display: flex;
+      flex-direction: row; 
+      gap: pxToRem(8);
+      label {
+        align-self: center;
+      }
+    }
+  }
+
+  label {
+    color: $color-neutral-90;
+    font-family: $typography-body-16-font-family;
+    font-size: $typography-body-16-font-size;
+    font-style: $typography-body-16-font-style;
+    font-weight: 600;
+    line-height: pxToRem(24);
+    letter-spacing: pxToRem(0.25);
+
+    &.light {
+      background-color: rgb(0, 0, 0, 0);
+      color: $color-neutral-90;
+
+      &.disabled {
+        color: $color-neutral-20;
+        border-color: $color-neutral-20;
+      }
+    }
+
+    &.dark {
+      background-color: $color-neutral-100-black;
+      color: $color-neutral-20;
+
+      &.disabled {
+        background-color: $color-neutral-80;
+        color: $color-neutral-70;
+        border-color: $color-neutral-80;
+      }
+    }
+  }
+
+  .select-container {
+    position: relative;
+    width: 100%;
+
+    &:after {
+      content: 'expand_more';
+      position: absolute;
+      display: inline-block;
+      font-weight: normal;
+      font-size: inherit;
+      font-style: normal;
+      line-height: inherit;
+      letter-spacing: normal;
+      text-transform: none;
+      white-space: nowrap;
+      overflow-wrap: normal;
+      direction: ltr;
+      font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+      font-family: 'Material Symbols Sharp';
+      right: 0.9rem;
+      top: 0.5rem;
+      pointer-events: none;
+    }
+  }
+
+  select {
+    appearance: none;
+    gap: pxToRem(8);
+    border-radius: pxToRem(5);
+    padding: pxToRem(12) pxToRem(48) pxToRem(12) pxToRem(16);
+    width: 100%;
+
+    &.light {
+      background-color: rgb(0, 0, 0, 0);
+      color: $color-neutral-90;
+      border: pxToRem(1) solid $color-neutral-20;
+
+      &:disabled {
+        background-color: $color-neutral-05;
+        color: $color-neutral-20;
+        border-color: $color-neutral-20;
+      }
+    }
+
+    &.dark {
+      color: $color-neutral-20;
+      background-color: $color-neutral-100-black;
+      border: pxToRem(1) solid $color-neutral-20;
+
+      &:disabled {
+        background-color: $color-neutral-80;
+        color: $color-neutral-70;
+        border-color: $color-neutral-80;
+      }
+    }
+
+    &:hover {
+      border-color: $color-neutral-70;
+    }
+
+    &.error {
+      border-color: $color-semantic-negative-03;
+    }
+
+    option {
+      max-width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }    
+  }
+
+  .error {
+    border-color: $color-semantic-negative-03;
+  }
+  .error-message {
+    display: flex;
+    align-items: center;
+    color: $color-semantic-negative-03;
+    font-family: Public Sans;
+    font-size: pxToRem(12);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  &:after {
+    right: pxToRem(16);
+
+    .select-error {
+      border: pxToRem(1) solid $color-semantic-negative-03;
+      color: $color-semantic-negative-03;
+
+      .error-container {
+        display: flex;
+        flex-direction: row;
+        font-family: $typography-body-16-font-family;
+        align-items: center;
+        gap: pxToRem(8);
+
+        span {
+          font-size: pxToRem(14);
+        }
+      }
+    }
+
+    .error {
+      border-color: $color-semantic-negative-03;
+    }
+
+    .error-message {
+      color: $color-semantic-negative-03;
+      font-family: Public Sans;
+      font-size: pxToRem(12);
+      font-style: normal;
+      font-weight: 400;
+      line-height: pxToRem(18);
+    }
+
+    .select-error {
+      border: pxToRem(1) solid $color-semantic-negative-03;
+      color: $color-semantic-negative-03;
+
+      .error-container {
+        display: flex;
+        flex-direction: row;
+        font-family: $typography-body-16-font-family;
+        align-items: center;
+        gap: pxToRem(8);
+
+        span {
+          font-size: pxToRem(14);
+        }
+      }
+    }
+  }
+}

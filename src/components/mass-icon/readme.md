@@ -30,6 +30,7 @@
  - [mass-modal](../mass-modal)
  - [mass-notification](../mass-notification)
  - [mass-question-toggle](../mass-question-toggle)
+ - [mass-select-field](../mass-select-field)
  - [mass-text-field](../mass-text-field)
  - [mass-textarea](../mass-textarea)
 
@@ -42,6 +43,7 @@ graph TD;
   mass-modal --> mass-icon
   mass-notification --> mass-icon
   mass-question-toggle --> mass-icon
+  mass-select-field --> mass-icon
   mass-text-field --> mass-icon
   mass-textarea --> mass-icon
   style mass-icon fill:#f9f,stroke:#333,stroke-width:4px

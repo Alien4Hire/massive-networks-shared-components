@@ -1,6 +1,6 @@
 {
   "name": "massive-networks-shared-web-components",
-  "version": "0.1.6",
+  "version": "0.1.22",
   "description": "MASS Shared Web Components",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",

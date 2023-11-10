@@ -1,4 +1,4 @@
-import { Component, Element, Host, Prop, Watch, h } from '@stencil/core';
+import { Component, Element, Host, Prop, Watch, h, Event, EventEmitter } from '@stencil/core';
 import { isStringAllowed, isStringNonEmpty, throwIfInvalid } from '../../utils/validators';
 
 @Component({
@@ -25,6 +25,13 @@ export class TextField {
    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#id
    */
   @Prop({reflect: true}) inputId!: string;
+
+  @Event() valueChange: EventEmitter<string>;
+
+  handleInputChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.valueChange.emit(input.value);
+  }
 
    /**
    * Validates the inputId attribute.
@@ -307,6 +314,7 @@ export class TextField {
             placeholder={this.placeholderText}
             required={this.isRequired}
             value={this.value}
+            onInput={(event) => this.handleInputChange(event)}
           />
         </div>
         {!!this.helpText === true && <span id={this.helpId} class="help-text">{this.helpText}</span>}

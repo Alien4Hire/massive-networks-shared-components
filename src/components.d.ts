@@ -68,7 +68,7 @@ export namespace Components {
     }
     interface MassGoogleMap {
         "center": { lat: number; lng: number };
-        "coordinates": { lat: number; lng: number }[];
+        "coordinates": { lat: number; lng: number; isDC?: number; isCELL?: number; isPOP?: number; wirelessReady?: number; fiberReady?: number }[];
         "legend": MassLegendItemType[];
     }
     interface MassIcon {
@@ -224,6 +224,37 @@ export namespace Components {
          */
         "optionsGroupName": string;
     }
+    interface MassSelectField {
+        /**
+          * Error message to be displayed for the select field being used.
+         */
+        "errorMessage": string;
+        /**
+          * Variable to control wether an error message and icon are displayed.g
+         */
+        "hasError": boolean;
+        /**
+          * ID of the select field being used.
+         */
+        "inputId": string;
+        /**
+          * Variable to control the disabled state of the select field being used.
+         */
+        "isDisabled": boolean;
+        /**
+          * Label of the select field being used.
+         */
+        "label": string;
+        "labelPosition": 'top' | 'left';
+        /**
+          * User's list of options to be rendered in the select field
+         */
+        "options": string | Array<{ name: string; value: string }>;
+        /**
+          * Light or Dark version of select field being used.
+         */
+        "type": string;
+    }
     interface MassTextField {
         /**
           * Error text for the field.  If provided, and if isValid is false, will be displayed below the field.
@@ -356,6 +387,14 @@ export interface MassQuestionToggleCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMassQuestionToggleElement;
 }
+export interface MassSelectFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMassSelectFieldElement;
+}
+export interface MassTextFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMassTextFieldElement;
+}
 export interface MassTextareaCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMassTextareaElement;
@@ -421,6 +460,12 @@ declare global {
         prototype: HTMLMassQuestionToggleElement;
         new (): HTMLMassQuestionToggleElement;
     };
+    interface HTMLMassSelectFieldElement extends Components.MassSelectField, HTMLStencilElement {
+    }
+    var HTMLMassSelectFieldElement: {
+        prototype: HTMLMassSelectFieldElement;
+        new (): HTMLMassSelectFieldElement;
+    };
     interface HTMLMassTextFieldElement extends Components.MassTextField, HTMLStencilElement {
     }
     var HTMLMassTextFieldElement: {
@@ -450,6 +495,7 @@ declare global {
         "mass-modal": HTMLMassModalElement;
         "mass-notification": HTMLMassNotificationElement;
         "mass-question-toggle": HTMLMassQuestionToggleElement;
+        "mass-select-field": HTMLMassSelectFieldElement;
         "mass-text-field": HTMLMassTextFieldElement;
         "mass-textarea": HTMLMassTextareaElement;
         "my-component": HTMLMyComponentElement;
@@ -522,7 +568,7 @@ declare namespace LocalJSX {
     }
     interface MassGoogleMap {
         "center"?: { lat: number; lng: number };
-        "coordinates"?: { lat: number; lng: number }[];
+        "coordinates"?: { lat: number; lng: number; isDC?: number; isCELL?: number; isPOP?: number; wirelessReady?: number; fiberReady?: number }[];
         "legend"?: MassLegendItemType[];
     }
     interface MassIcon {
@@ -691,6 +737,38 @@ declare namespace LocalJSX {
          */
         "optionsGroupName": string;
     }
+    interface MassSelectField {
+        /**
+          * Error message to be displayed for the select field being used.
+         */
+        "errorMessage"?: string;
+        /**
+          * Variable to control wether an error message and icon are displayed.g
+         */
+        "hasError"?: boolean;
+        /**
+          * ID of the select field being used.
+         */
+        "inputId": string;
+        /**
+          * Variable to control the disabled state of the select field being used.
+         */
+        "isDisabled"?: boolean;
+        /**
+          * Label of the select field being used.
+         */
+        "label": string;
+        "labelPosition"?: 'top' | 'left';
+        "onValueChange"?: (event: MassSelectFieldCustomEvent<string>) => void;
+        /**
+          * User's list of options to be rendered in the select field
+         */
+        "options": string | Array<{ name: string; value: string }>;
+        /**
+          * Light or Dark version of select field being used.
+         */
+        "type"?: string;
+    }
     interface MassTextField {
         /**
           * Error text for the field.  If provided, and if isValid is false, will be displayed below the field.
@@ -733,6 +811,7 @@ declare namespace LocalJSX {
           * The minimum input length for the field.  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#minlength
          */
         "minLength"?: number;
+        "onValueChange"?: (event: MassTextFieldCustomEvent<string>) => void;
         /**
           * The validation pattern for the field.  Regexp string.  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#pattern
          */
@@ -821,6 +900,7 @@ declare namespace LocalJSX {
         "mass-modal": MassModal;
         "mass-notification": MassNotification;
         "mass-question-toggle": MassQuestionToggle;
+        "mass-select-field": MassSelectField;
         "mass-text-field": MassTextField;
         "mass-textarea": MassTextarea;
         "my-component": MyComponent;
@@ -840,6 +920,7 @@ declare module "@stencil/core" {
             "mass-modal": LocalJSX.MassModal & JSXBase.HTMLAttributes<HTMLMassModalElement>;
             "mass-notification": LocalJSX.MassNotification & JSXBase.HTMLAttributes<HTMLMassNotificationElement>;
             "mass-question-toggle": LocalJSX.MassQuestionToggle & JSXBase.HTMLAttributes<HTMLMassQuestionToggleElement>;
+            "mass-select-field": LocalJSX.MassSelectField & JSXBase.HTMLAttributes<HTMLMassSelectFieldElement>;
             "mass-text-field": LocalJSX.MassTextField & JSXBase.HTMLAttributes<HTMLMassTextFieldElement>;
             "mass-textarea": LocalJSX.MassTextarea & JSXBase.HTMLAttributes<HTMLMassTextareaElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;

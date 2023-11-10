@@ -26,6 +26,13 @@
 | `value`                  | `value`            | The value of the field passed from the parent component (if any).  Defaults to an empty string.                                                                                                                                                                                                                                                                                                                   | `string`          | `""`        |
 
 
+## Events
+
+| Event         | Description | Type                  |
+| ------------- | ----------- | --------------------- |
+| `valueChange` |             | `CustomEvent<string>` |
+
+
 ## Dependencies
 
 ### Depends on
