@@ -70,6 +70,7 @@ export namespace Components {
         "center": { lat: number; lng: number };
         "coordinates": { lat: number; lng: number; isDC?: number; isCELL?: number; isPOP?: number; wirelessReady?: number; fiberReady?: number }[];
         "legend": MassLegendItemType[];
+        "zoom"?: number;
     }
     interface MassIcon {
         /**
@@ -177,6 +178,10 @@ export namespace Components {
           * @param priority - low | medium | high
          */
         "priority": string;
+    }
+    interface MassProgressBar {
+        "isVisible": boolean;
+        "progress": number;
     }
     interface MassQuestionToggle {
         /**
@@ -454,6 +459,12 @@ declare global {
         prototype: HTMLMassNotificationElement;
         new (): HTMLMassNotificationElement;
     };
+    interface HTMLMassProgressBarElement extends Components.MassProgressBar, HTMLStencilElement {
+    }
+    var HTMLMassProgressBarElement: {
+        prototype: HTMLMassProgressBarElement;
+        new (): HTMLMassProgressBarElement;
+    };
     interface HTMLMassQuestionToggleElement extends Components.MassQuestionToggle, HTMLStencilElement {
     }
     var HTMLMassQuestionToggleElement: {
@@ -494,6 +505,7 @@ declare global {
         "mass-legend": HTMLMassLegendElement;
         "mass-modal": HTMLMassModalElement;
         "mass-notification": HTMLMassNotificationElement;
+        "mass-progress-bar": HTMLMassProgressBarElement;
         "mass-question-toggle": HTMLMassQuestionToggleElement;
         "mass-select-field": HTMLMassSelectFieldElement;
         "mass-text-field": HTMLMassTextFieldElement;
@@ -570,6 +582,7 @@ declare namespace LocalJSX {
         "center"?: { lat: number; lng: number };
         "coordinates"?: { lat: number; lng: number; isDC?: number; isCELL?: number; isPOP?: number; wirelessReady?: number; fiberReady?: number }[];
         "legend"?: MassLegendItemType[];
+        "zoom"?: number;
     }
     interface MassIcon {
         /**
@@ -686,6 +699,10 @@ declare namespace LocalJSX {
           * @param priority - low | medium | high
          */
         "priority"?: string;
+    }
+    interface MassProgressBar {
+        "isVisible"?: boolean;
+        "progress"?: number;
     }
     interface MassQuestionToggle {
         /**
@@ -899,6 +916,7 @@ declare namespace LocalJSX {
         "mass-legend": MassLegend;
         "mass-modal": MassModal;
         "mass-notification": MassNotification;
+        "mass-progress-bar": MassProgressBar;
         "mass-question-toggle": MassQuestionToggle;
         "mass-select-field": MassSelectField;
         "mass-text-field": MassTextField;
@@ -919,6 +937,7 @@ declare module "@stencil/core" {
             "mass-legend": LocalJSX.MassLegend & JSXBase.HTMLAttributes<HTMLMassLegendElement>;
             "mass-modal": LocalJSX.MassModal & JSXBase.HTMLAttributes<HTMLMassModalElement>;
             "mass-notification": LocalJSX.MassNotification & JSXBase.HTMLAttributes<HTMLMassNotificationElement>;
+            "mass-progress-bar": LocalJSX.MassProgressBar & JSXBase.HTMLAttributes<HTMLMassProgressBarElement>;
             "mass-question-toggle": LocalJSX.MassQuestionToggle & JSXBase.HTMLAttributes<HTMLMassQuestionToggleElement>;
             "mass-select-field": LocalJSX.MassSelectField & JSXBase.HTMLAttributes<HTMLMassSelectFieldElement>;
             "mass-text-field": LocalJSX.MassTextField & JSXBase.HTMLAttributes<HTMLMassTextFieldElement>;

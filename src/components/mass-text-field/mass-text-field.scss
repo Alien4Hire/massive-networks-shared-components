@@ -11,7 +11,7 @@
   label {
     align-self: stretch;
     display: flex;
-
+    text-wrap: nowrap;
     &.disabled {
       color: $color-neutral-20;
       cursor: not-allowed;
@@ -26,6 +26,7 @@
     &.position-left {
       display: flex;
       flex-direction: row; 
+      width: 100%;
       gap: pxToRem(8);
       label {
         align-self: center;
@@ -46,6 +47,7 @@
     padding: pxToRem(12) pxToRem(16);
     position: relative;
     opacity: 0.8;
+    width: 100%;
 
     &:after {
       content: '';

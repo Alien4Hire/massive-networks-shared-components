@@ -47,7 +47,7 @@ const defaultArgs: {
     },
     {
       name: 'mapCircle',
-      color: 'black',
+      color: 'white',
       title: 'Ethernet - Coax',
     },
 

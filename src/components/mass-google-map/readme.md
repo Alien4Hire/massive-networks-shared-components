@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property      | Attribute | Description | Type                                                                                                                           | Default                          |
-| ------------- | --------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
-| `center`      | --        |             | `{ lat: number; lng: number; }`                                                                                                | `{ lat: -34.397, lng: 150.644 }` |
-| `coordinates` | --        |             | `{ lat: number; lng: number; isDC?: number; isCELL?: number; isPOP?: number; wirelessReady?: number; fiberReady?: number; }[]` | `[]`                             |
-| `legend`      | --        |             | `MassLegendItemType[]`                                                                                                         | `[]`                             |
+| Property      | Attribute | Description | Type                                                                                                                           | Default                                                 |
+| ------------- | --------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| `center`      | --        |             | `{ lat: number; lng: number; }`                                                                                                | `{ lat: -40.055429867763834, lng: -83.04729663229006 }` |
+| `coordinates` | --        |             | `{ lat: number; lng: number; isDC?: number; isCELL?: number; isPOP?: number; wirelessReady?: number; fiberReady?: number; }[]` | `[]`                                                    |
+| `legend`      | --        |             | `MassLegendItemType[]`                                                                                                         | `[]`                                                    |
+| `zoom`        | `zoom`    |             | `number`                                                                                                                       | `undefined`                                             |
 
 
 ## Dependencies

@@ -1,16 +1,15 @@
 import { Component, Host, Prop, h, Element, Watch, State } from '@stencil/core';
 // import * as iconList from './icon-list/icon-list';
-import GithubIcon from './icons/github.svg'
-import Wifi from './icons/wifi.svg'
-import { mapCircle } from './icons/map-circle'
+import GithubIcon from './icons/github.svg';
+import Wifi from './icons/wifi.svg';
+import { mapCircle } from './icons/map-circle';
 
 @Component({
   tag: 'mass-icon',
   styleUrl: 'mass-icon.scss',
-  shadow: true
+  shadow: true,
 })
 export class Icon {
-
   @Element() hostElement: HTMLElement;
 
   /**
@@ -19,10 +18,10 @@ export class Icon {
    * This is the name of the icon as it appears in the Material Symbols library in Google Fonts.
    *
    * Example: Chevron Right (chevron_right) https://fonts.google.com/icons?selected=Material+Symbols+Outlined:chevron_right:FILL@0;wght@400;GRAD@0;opsz@24
-  */
+   */
   @Prop() iconName!: string;
 
-  @Watch("iconName")
+  @Watch('iconName')
   /**
    * Validates the iconName attribute.
    *
@@ -36,7 +35,7 @@ export class Icon {
 
     const isValid = this.isNonEmptyString(newValue) && this.isLowerSnakeCaseString(newValue);
     if (!isValid) {
-        throw new Error(errorMessage);
+      throw new Error(errorMessage);
     }
   }
 
@@ -81,20 +80,20 @@ export class Icon {
    */
   @Prop() isPresentational: boolean = true;
 
-  @Watch("isPresentational")
+  @Watch('isPresentational')
   /**
    * Requires the altText prop if isPresentational is false.
    *
    * Throws an error if isPresentational is false and altText prop is not non-empty string.
    */
-    conditionallyRequireAltText(newValue: string): void {
-      const errorMessage = `${this.hostElement.tagName}: altText must be a non-empty string if isPresentational is false.`;
+  conditionallyRequireAltText(newValue: string): void {
+    const errorMessage = `${this.hostElement.tagName}: altText must be a non-empty string if isPresentational is false.`;
 
-      const isValid = !this.isPresentational && (this.isNonEmptyString(newValue));
-      if (!isValid) {
-          throw new Error(errorMessage);
-      }
+    const isValid = !this.isPresentational && this.isNonEmptyString(newValue);
+    if (!isValid) {
+      throw new Error(errorMessage);
     }
+  }
 
   /**
    * Lifecycle method called when the component is first connected to the DOM (similar to React componentDidMount).
@@ -108,15 +107,28 @@ export class Icon {
         github: GithubIcon,
         mapCircle: mapCircle(),
         wifi: Wifi,
-      }
+      };
       IsIcon = IconSVGList[this.iconName];
       if (IsIcon) {
         if (this.iconName === 'mapCircle') {
-          this.svgContent = this.fillSvgContent(mapCircle(this.color || undefined))
+          if (this.color === 'purple') {
+            this.svgContent = 'http://maps.google.com/mapfiles/kml/paddle/blu-circle-lv.png';
+          }
+          if (this.color === 'green') {
+            this.svgContent = 'http://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png';
+          }
+          if (this.color === 'orange') {
+            this.svgContent = 'http://maps.google.com/mapfiles/kml/paddle/ylw-circle-lv.png';
+          }
+          if (this.color === 'red') {
+            this.svgContent = 'http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png';
+          }
+          if (this.color === 'white') {
+            this.svgContent = this.fillSvgContent(mapCircle(this.color || undefined))
+          }
         } else {
           this.svgContent = IsIcon;
         }
-       
       } else {
         this.validateIconName(this.iconName);
         !this.isPresentational && this.conditionallyRequireAltText(this.altText);
@@ -138,7 +150,7 @@ export class Icon {
    *
    * Color page in Figma: https://www.figma.com/file/DM0lok3Yv46sK6LiJflDrm/mass-Hydrogen-Design-System?type=design&node-id=273-5&mode=design
    */
-  @Prop() color: string = "neutral-black-100";
+  @Prop() color: string = 'neutral-black-100';
 
   /**
    * The style of the icon.
@@ -149,7 +161,7 @@ export class Icon {
    *
    * https://fonts.google.com/icons
    */
-  @Prop() iconStyle: string = "rounded";
+  @Prop() iconStyle: string = 'rounded';
 
   /**
    * Optical size of the font. Used in the `font-variation-settings` CSS property set via the icon's `style` attribute.
@@ -197,7 +209,6 @@ export class Icon {
 
   @State() svgContent?: string;
 
-
   /**
    * Generates the class name for the icon style, as specified in Google Fonts.
    *
@@ -218,22 +229,21 @@ export class Icon {
    *
    * @returns string | font-variation-settings CSS property for the icon
    */
-  getFontVariationStyle(): any  {
+  getFontVariationStyle(): any {
     return {
-      'fontVariationSettings': `'FILL' ${ this.fill ? 1 : 0}, 'wght' ${this.weight}, 'GRAD' ${this.grade}, 'opsz' ${this.opticalSize}`
-      }
-
+      fontVariationSettings: `'FILL' ${this.fill ? 1 : 0}, 'wght' ${this.weight}, 'GRAD' ${this.grade}, 'opsz' ${this.opticalSize}`,
+    };
   }
 
   render() {
     if (this.svgContent) {
-      console.log(this.svgContent, 'svgContent')
-      if (/^data:image\/svg\+xml;base64,[a-zA-Z0-9+/]+={0,2}$/.test(this.svgContent)) {
+      console.log(this.svgContent, 'svgContent');
+      if (/https?:\/\/[\w.-]+\/[\w\/.-]+(\.png|\.jpg)?/.test(this.svgContent) || /^data:image\/svg\+xml;base64,[a-zA-Z0-9+/]+={0,2}$/.test(this.svgContent)) {
         return (
           <Host>
             <img src={this.svgContent} />
           </Host>
-        )
+        );
       } else {
         return (
           <Host>
@@ -241,7 +251,6 @@ export class Icon {
           </Host>
         );
       }
-
     }
 
     return (
@@ -249,12 +258,12 @@ export class Icon {
         <span
           aria-label={!this.isPresentational ? this.altText : undefined}
           class={this.getIconStyleClass()}
-          role={this.isPresentational ? "presentation" : undefined}
+          role={this.isPresentational ? 'presentation' : undefined}
           style={this.getFontVariationStyle()}
         >
           {this.iconName}
         </span>
       </Host>
     );
-  }  
+  }
 }

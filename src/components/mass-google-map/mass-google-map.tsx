@@ -11,9 +11,10 @@ import Wifi from '../mass-icon/icons/wifi.svg';
 export class GoogleMap {
   @State() map: google.maps.Map;
   @State() markers: google.maps.Marker[] = [];
-  @Prop() center: { lat: number; lng: number } = { lat: -34.397, lng: 150.644 };
+  @Prop() center: { lat: number; lng: number } = { lat: -40.055429867763834, lng: -83.04729663229006 };
   @Prop() coordinates: { lat: number; lng: number; isDC?: number; isCELL?: number; isPOP?: number; wirelessReady?: number; fiberReady?: number }[] = [];
   @Prop() legend: MassLegendItemType[] = [];
+  @Prop() zoom?: number;
 
   mapElement: HTMLElement;
 
@@ -29,7 +30,7 @@ export class GoogleMap {
 
     this.map = new google.maps.Map(this.mapElement, {
       center: this.center,
-      zoom: 8,
+      zoom: 7,
     });
 
     this.coordinates.forEach(coord => this.addMarker(coord));
@@ -76,6 +77,33 @@ export class GoogleMap {
   coordinatesChanged(newValue: { lat: number; lng: number }[], oldValue: { lat: number; lng: number }[]) {
     if (newValue !== oldValue) {
       this.updateMapMarkers(newValue);
+    }
+  }
+
+  @Watch('center')
+  centerChanged(newCenter: { lat: number; lng: number }) {
+    if (this.map && newCenter) {
+      this.map.setCenter(new google.maps.LatLng(newCenter.lat, newCenter.lng));
+    }
+  }
+
+  @Watch('zoom')
+  zoomChanged(newZoom: number) {
+    if (this.map && typeof newZoom === 'number') {
+      this.map.setZoom(this.calculateZoomLevel(newZoom));
+    }
+  }
+
+  calculateZoomLevel(radius: number): number {
+    switch (radius) {
+      case 200: return 7;
+      case 20: return 11;
+      case 10: return 12;
+      case 5: return 13;
+      case 1: return 15;
+      case 0.5: return 16;
+      case 0.3: return 17;
+      default: return 8; 
     }
   }
 
