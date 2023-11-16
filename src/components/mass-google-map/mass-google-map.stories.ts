@@ -68,8 +68,8 @@ export const Default: Story = {
 export const WithDefaultLocation: Story = {
   args: {
     ...defaultArgs,
-    center: { lat: 37.7849, lng: -122.4294 },
-    latitude: 37.7749,
+    center: { lat: 39.9654502, lng: -105.1241617 },
+    latitude: 39.9654502,
     longitude: -122.4194,
   }
 };
@@ -77,10 +77,10 @@ export const WithDefaultLocation: Story = {
 export const WithMultipleCoordinates: Story = {
   args: {
     ...defaultArgs,
-    center: { lat: 37.7849, lng: -122.4294 },
+    center: { lat: 39.9654502, lng: -105.1241617 },
     coordinates: [
-      { lat: 37.7749, lng: -124.4194 },
-      { lat: 37.7849, lng: -122.4294 } 
+      { lat: 39.9654502, lng: -124.4194 },
+      { lat: 39.9654502, lng: -105.1241617 } 
     ]
   }
 };

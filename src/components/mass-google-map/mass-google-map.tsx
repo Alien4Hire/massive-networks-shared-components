@@ -11,7 +11,7 @@ import Wifi from '../mass-icon/icons/wifi.svg';
 export class GoogleMap {
   @State() map: google.maps.Map;
   @State() markers: google.maps.Marker[] = [];
-  @Prop() center: { lat: number; lng: number } = { lat: -40.055429867763834, lng: -83.04729663229006 };
+  @Prop() center: { lat: number; lng: number } = { lat: 39.9654502, lng: -105.1241617 };
   @Prop() coordinates: { lat: number; lng: number; isDC?: number; isCELL?: number; isPOP?: number; wirelessReady?: number; fiberReady?: number }[] = [];
   @Prop() legend: MassLegendItemType[] = [];
   @Prop() zoom?: number;
@@ -30,7 +30,7 @@ export class GoogleMap {
 
     this.map = new google.maps.Map(this.mapElement, {
       center: this.center,
-      zoom: 7,
+      zoom: 4,
     });
 
     this.coordinates.forEach(coord => this.addMarker(coord));

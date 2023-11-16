@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property      | Attribute | Description | Type                                                                                                                           | Default                                                 |
-| ------------- | --------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
-| `center`      | --        |             | `{ lat: number; lng: number; }`                                                                                                | `{ lat: -40.055429867763834, lng: -83.04729663229006 }` |
-| `coordinates` | --        |             | `{ lat: number; lng: number; isDC?: number; isCELL?: number; isPOP?: number; wirelessReady?: number; fiberReady?: number; }[]` | `[]`                                                    |
-| `legend`      | --        |             | `MassLegendItemType[]`                                                                                                         | `[]`                                                    |
-| `zoom`        | `zoom`    |             | `number`                                                                                                                       | `undefined`                                             |
+| Property      | Attribute | Description | Type                                                                                                                           | Default                                  |
+| ------------- | --------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------- |
+| `center`      | --        |             | `{ lat: number; lng: number; }`                                                                                                | `{ lat: 39.9654502, lng: -105.1241617 }` |
+| `coordinates` | --        |             | `{ lat: number; lng: number; isDC?: number; isCELL?: number; isPOP?: number; wirelessReady?: number; fiberReady?: number; }[]` | `[]`                                     |
+| `legend`      | --        |             | `MassLegendItemType[]`                                                                                                         | `[]`                                     |
+| `zoom`        | `zoom`    |             | `number`                                                                                                                       | `undefined`                              |
 
 
 ## Dependencies
