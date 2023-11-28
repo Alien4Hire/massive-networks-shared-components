@@ -64,7 +64,7 @@ export class CheckboxGroup {
 
   handleChange(event, index) {
     this._checked = [...this._checked.slice(0, index), event.target.checked, ...this._checked.slice(index + 1)];
-    this.massChange.emit(event);
+    this.massChange.emit(this._checked);
   }
 
   /**

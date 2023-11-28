@@ -1,31 +1,30 @@
 :host {
   display: block;
-  font-family: $typography-body-16-font-family;
+  font-family: $typography-body-14-font-family;
 }
 
 .checkbox-title {
   color: $color-neutral-90;
-  font-family: $typography-body-16-font-family;
-  font-size: $typography-body-16-font-size;
-  font-weight: $typography-body-16-semibold-font-weight;
-  line-height: getLineHeightRatio($typography-body-16-font-size, $typography-body-16-line-height);
+  font-family: $typography-body-14-font-family;
+  font-size: pxToRem($typography-body-14-font-size);
+
+  line-height: getLineHeightRatio($typography-body-14-font-size, $typography-body-14-line-height);
 }
 
 .title-margin {
-  margin-bottom: pxToRem(16);
+  margin-bottom: pxToRem(14);
 }
 
 .label-margin-bottom {
-  margin-bottom: pxToRem(16);
+  margin-bottom: pxToRem(14);
 }
 
 .checkbox-text {
   color: $color-neutral-90;
   font-family: $typography-body-14-font-family;
-  font-size: $typography-body-16-font-size;
-  font-style: $typography-body-16-font-style;
-  font-weight: $typography-body-16-font-weight;
-  line-height: getLineHeightRatio($typography-body-16-font-size, $typography-body-16-line-height);
+  font-size: pxToRem($typography-body-14-font-size);
+  font-style: $typography-body-14-font-style;
+  line-height: getLineHeightRatio($typography-body-14-font-size, $typography-body-14-line-height);
   margin-left: pxToRem(8);
 }
 
@@ -33,6 +32,7 @@
   display: flex;
   flex-direction: column;
   border: none;
+  padding: 0px
 }
 
 .checkbox-label {
@@ -63,7 +63,7 @@
   mass-icon {
     position: relative;
     top: -2px;
-  };
+  }
 }
 
 .primary-check {

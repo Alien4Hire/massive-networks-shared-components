@@ -5,8 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { MapMarker } from "./components/mass-google-map/mass-google-map";
 import { MassLegendItemType } from "./components/mass-legend/mass-legend";
 import { MassLegendItemType as MassLegendItemType1 } from "./components/mass-legend/mass-legend";
+export { MapMarker } from "./components/mass-google-map/mass-google-map";
 export { MassLegendItemType } from "./components/mass-legend/mass-legend";
 export { MassLegendItemType as MassLegendItemType1 } from "./components/mass-legend/mass-legend";
 export namespace Components {
@@ -68,8 +70,9 @@ export namespace Components {
     }
     interface MassGoogleMap {
         "center": { lat: number; lng: number };
-        "coordinates": { lat: number; lng: number; isDC?: number; isCELL?: number; isPOP?: number; wirelessReady?: number; fiberReady?: number }[];
+        "handleGetQuote"?: (detail: any) => void;
         "legend": MassLegendItemType[];
+        "searchResults": MapMarker[];
         "zoom"?: number;
     }
     interface MassIcon {
@@ -580,8 +583,9 @@ declare namespace LocalJSX {
     }
     interface MassGoogleMap {
         "center"?: { lat: number; lng: number };
-        "coordinates"?: { lat: number; lng: number; isDC?: number; isCELL?: number; isPOP?: number; wirelessReady?: number; fiberReady?: number }[];
+        "handleGetQuote"?: (detail: any) => void;
         "legend"?: MassLegendItemType[];
+        "searchResults"?: MapMarker[];
         "zoom"?: number;
     }
     interface MassIcon {

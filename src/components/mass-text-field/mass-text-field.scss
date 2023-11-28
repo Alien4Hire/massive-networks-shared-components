@@ -20,7 +20,8 @@
 
   div {
     &.position-top {
-      order: -1
+      order: -1;
+      width: 100%;
     }
 
     &.position-left {

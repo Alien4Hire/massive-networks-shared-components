@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property      | Attribute | Description | Type                                                                                                                           | Default                                  |
-| ------------- | --------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------- |
-| `center`      | --        |             | `{ lat: number; lng: number; }`                                                                                                | `{ lat: 39.9654502, lng: -105.1241617 }` |
-| `coordinates` | --        |             | `{ lat: number; lng: number; isDC?: number; isCELL?: number; isPOP?: number; wirelessReady?: number; fiberReady?: number; }[]` | `[]`                                     |
-| `legend`      | --        |             | `MassLegendItemType[]`                                                                                                         | `[]`                                     |
-| `zoom`        | `zoom`    |             | `number`                                                                                                                       | `undefined`                              |
+| Property         | Attribute | Description | Type                            | Default                                  |
+| ---------------- | --------- | ----------- | ------------------------------- | ---------------------------------------- |
+| `center`         | --        |             | `{ lat: number; lng: number; }` | `{ lat: 39.9654502, lng: -105.1241617 }` |
+| `handleGetQuote` | --        |             | `(detail: any) => void`         | `undefined`                              |
+| `legend`         | --        |             | `MassLegendItemType[]`          | `[]`                                     |
+| `searchResults`  | --        |             | `MapMarker[]`                   | `[]`                                     |
+| `zoom`           | `zoom`    |             | `number`                        | `undefined`                              |
 
 
 ## Dependencies

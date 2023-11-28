@@ -1,9 +1,6 @@
 import { Component, Host, Prop, h, Element, Watch, State } from '@stencil/core';
 // import * as iconList from './icon-list/icon-list';
 import GithubIcon from './icons/github.svg';
-import Wifi from './icons/wifi.svg';
-import { mapCircle } from './icons/map-circle';
-
 @Component({
   tag: 'mass-icon',
   styleUrl: 'mass-icon.scss',
@@ -101,35 +98,28 @@ export class Icon {
    * https://stenciljs.com/docs/component-lifecycle#componentwillload
    */
   async componentWillLoad() {
-    let IsIcon;
+    const baseUrl = 'https://maps.massivenetworks.com/images/';
     try {
       const IconSVGList = {
         github: GithubIcon,
-        mapCircle: mapCircle(),
-        wifi: Wifi,
       };
-      IsIcon = IconSVGList[this.iconName];
-      if (IsIcon) {
-        if (this.iconName === 'mapCircle') {
-          if (this.color === 'purple') {
-            this.svgContent = 'http://maps.google.com/mapfiles/kml/paddle/blu-circle-lv.png';
-          }
-          if (this.color === 'green') {
-            this.svgContent = 'http://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png';
-          }
-          if (this.color === 'orange') {
-            this.svgContent = 'http://maps.google.com/mapfiles/kml/paddle/ylw-circle-lv.png';
-          }
-          if (this.color === 'red') {
-            this.svgContent = 'http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png';
-          }
-          if (this.color === 'white') {
-            this.svgContent = this.fillSvgContent(mapCircle(this.color || undefined))
-          }
-        } else {
-          this.svgContent = IsIcon;
-        }
-      } else {
+      const urlList = {
+        fiber: `${baseUrl}fiber.png`,
+        wireless: `${baseUrl}wireless.png`,
+        ethernet: `${baseUrl}ethernet.png`,
+        coax: `${baseUrl}coax.png`,
+        markerPurple: 'http://maps.google.com/mapfiles/kml/paddle/blu-circle-lv.png',
+        markerGreen: 'http://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png',
+        markerOrange: 'http://maps.google.com/mapfiles/kml/paddle/ylw-circle-lv.png',
+        markerRed: 'http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png',
+        markerWhite: `${baseUrl}wht-circle-lv.png`,
+        wifi: `${baseUrl}wifi.png`,
+      };
+      this.svgContent = IconSVGList[this.iconName];
+      this.url = urlList[this.iconName];
+      console.log(this.url, urlList[this.iconName])
+      console.log(this.iconName)
+      if (!this.svgContent && !this.url) {
         this.validateIconName(this.iconName);
         !this.isPresentational && this.conditionallyRequireAltText(this.altText);
       }
@@ -208,6 +198,7 @@ export class Icon {
   @Prop() grade: number = 0;
 
   @State() svgContent?: string;
+  @State() url?: string;
 
   /**
    * Generates the class name for the icon style, as specified in Google Fonts.
@@ -237,20 +228,20 @@ export class Icon {
 
   render() {
     if (this.svgContent) {
-      console.log(this.svgContent, 'svgContent');
-      if (/https?:\/\/[\w.-]+\/[\w\/.-]+(\.png|\.jpg)?/.test(this.svgContent) || /^data:image\/svg\+xml;base64,[a-zA-Z0-9+/]+={0,2}$/.test(this.svgContent)) {
-        return (
-          <Host>
-            <img src={this.svgContent} />
-          </Host>
-        );
-      } else {
-        return (
-          <Host>
-            <div innerHTML={this.svgContent}></div>
-          </Host>
-        );
-      }
+      return (
+        <Host>
+          <div innerHTML={this.svgContent}></div>
+        </Host>
+      );
+    }
+
+    if (this.url) {
+      console.log('i have url', this.url)
+      return (
+        <Host>
+          <img src={this.url} />
+        </Host>
+      );
     }
 
     return (

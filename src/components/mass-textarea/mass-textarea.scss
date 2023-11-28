@@ -6,23 +6,22 @@
   label {
     color: $color-neutral-90;
     display: block;
-    font-family: $typography-body-16-font-family;
+    font-family: $typography-body-14-font-family;
     margin-bottom: pxToRem(8);
-    font-size: pxToRem($typography-body-16-font-size);
-    font-style: $typography-body-16-font-style;
-    font-weight: $typography-body-16-semibold-font-weight;
-    line-height: getLineHeightRatio($typography-body-16-font-size, $typography-body-16-line-height);
+    font-size: pxToRem($typography-body-14-font-size);
+    font-style: $typography-body-14-font-style;
+    line-height: getLineHeightRatio($typography-body-14-font-size, $typography-body-14-line-height);
   }
 
   .my-textarea {
     border: 1px solid $color-neutral-20;
-    padding: pxToRem(8) pxToRem(16);
-    font-size: pxToRem($typography-body-16-font-size);
+    padding: pxToRem(8) pxToRem(14);
+    font-size: pxToRem($typography-body-14-font-size);
     box-sizing: border-box;
     height: 100%;
     width: 100%;
     transition: border-color 0.3s ease;
-    font-family: $typography-body-16-font-family;
+    font-family: $typography-body-14-font-family;
 
     &:hover {
       border-color: $color-neutral-70;
@@ -51,7 +50,7 @@
   .error-container span {
     color: $color-semantic-negative-03;
     font-size: pxToRem($typography-body-14-font-size);
-    font-family: $typography-body-16-font-family;
+    font-family: $typography-body-14-font-family;
   }
 
   :host([isError]) .my-textarea {
