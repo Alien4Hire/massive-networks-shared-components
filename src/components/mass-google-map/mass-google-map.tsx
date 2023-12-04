@@ -128,14 +128,13 @@ export class GoogleMap {
       icon,
     });
     marker.addListener('click', () => {
-      console.log(this.formatMarkerData(result),"clicked");
       const infoWindow = new google.maps.InfoWindow({
         content: this.formatMarkerData(result),
       });
       infoWindow.open(this.map, marker);
     });
     console.log(marker,"marker")
-    this.markers = marker;
+    this.markers.push(marker);
   }
 
   @Watch('searchResults')
