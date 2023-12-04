@@ -29,6 +29,7 @@ export class GoogleMap {
   @State() markers: google.maps.Marker[] = [];
   @Prop() center: { lat: number; lng: number } = { lat: 39.9654502, lng: -105.1241617 };
   @Prop() searchResults: MapMarker[] = [];
+  @State() previousOpenedMarker: google.maps.InfoWindow = null;
   @Prop() legend: MassLegendItemType[] = [];
   @Prop() zoom?: number;
   @Prop() handleGetQuote?: (detail: any) => void;
@@ -127,10 +128,14 @@ export class GoogleMap {
       map: this.map,
       icon,
     });
+    // console.log()
     marker.addListener('click', () => {
       const infoWindow = new google.maps.InfoWindow({
         content: this.formatMarkerData(result),
       });
+      if(this.previousOpenedMarker?.close)
+        this.previousOpenedMarker.close()
+      this.previousOpenedMarker = infoWindow;
       infoWindow.open(this.map, marker);
     });
     this.markers.push(marker);
