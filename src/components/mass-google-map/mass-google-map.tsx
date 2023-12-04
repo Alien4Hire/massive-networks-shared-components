@@ -137,6 +137,7 @@ export class GoogleMap {
       this.previousOpenedMarker = infoWindow;
       infoWindow.open(this.map, marker);
     });
+    console.log(marker,"marker")
     this.markers.push(marker);
   }
 
