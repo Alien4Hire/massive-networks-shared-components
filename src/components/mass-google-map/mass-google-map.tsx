@@ -128,7 +128,6 @@ export class GoogleMap {
       map: this.map,
       icon,
     });
-    // console.log()
     marker.addListener('click', () => {
       const infoWindow = new google.maps.InfoWindow({
         content: this.formatMarkerData(result),
