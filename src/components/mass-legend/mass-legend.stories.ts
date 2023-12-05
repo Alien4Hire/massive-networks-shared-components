@@ -38,7 +38,7 @@ const defaultArgs: {
     {
       name: 'wifi',
       color: 'purple',
-      title: 'Fiber - Wireless',
+      title: 'Wireless - Fixed',
     },
     {
       name: 'mapCircle',

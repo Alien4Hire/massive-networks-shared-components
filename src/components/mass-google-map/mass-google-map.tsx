@@ -50,6 +50,14 @@ export class GoogleMap {
       center: this.center,
       zoom: 4,
     });
+    const { lat, lng } = this.center;
+    new google.maps.Marker({
+        position: new google.maps.LatLng(lat, lng),
+        map: this.map,
+        icon: {
+          url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+        },
+    });
 
     this.searchResults.forEach(coord => this.addMarker(coord));
 

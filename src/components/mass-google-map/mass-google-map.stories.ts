@@ -38,7 +38,7 @@ const legendDefaultArgs: {
     {
       name: 'wifi',
       color: 'purple',
-      title: 'Fiber - Wireless',
+      title: 'Wireless - Fixed',
     },
     {
       name: 'markerPurple',
