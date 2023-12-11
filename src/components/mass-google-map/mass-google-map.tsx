@@ -75,8 +75,8 @@ export class GoogleMap {
     const footage = parseInt(distance) * 3280.839895;
     const feet = Math.round((footage + 0.00001) * 100) / 100;
     let servicetype = 'Delivery Options:<br>';
-    const fiber = ` <mass-icon icon-name="fiber"></mass-icon> - Fiber - Building`;
-    const wireless = ` <mass-icon icon-name="wireless" ></mass-icon>- Fiber - WireLess`;
+    const fiber = ` <mass-icon icon-name="markerPurple"></mass-icon> - Fiber - Building`;
+    const wireless = ` <mass-icon icon-name="wifi" ></mass-icon>- Fiber - WireLess`;
     const ethernet = ` <mass-icon icon-name="ethernet" ></mass-icon> - Fiber - Coax`;
     const coax = ` <mass-icon icon-name="coax" ></mass-icon> - Cable/Coax`;
     const dc = ` <mass-icon icon-name="markerGreen" ></mass-icon> - Fiber - Datacenter`;
@@ -105,7 +105,7 @@ export class GoogleMap {
 
     }
     const content = `
-      <mass-icon icon-name="formLogo" style="width: 134px; height: 45px;" ></mass-icon><br/>
+      <img src="https://res.cloudinary.com/dghsmwkfq/image/upload/v1702289962/aykvrxst0co4fmupzhx1.png" style="width: 85px; height: 35px;" /> <br/>
       <b>${address}</b> <br/> 
       <b>Distance: </b> ${feet} feet <br /><br /> 
       <b>${paths} Paths Available</b> <br /><br />
