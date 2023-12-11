@@ -27,7 +27,7 @@ export type MapMarker = {
 export class GoogleMap {
   @State() map: google.maps.Map;
   @State() markers: google.maps.Marker[] = [];
-  @Prop() center: { lat: number; lng: number } = { lat: 39.9654502, lng: -105.1241617 };
+  @Prop() center: { lat: number; lng: number } = { lat: null, lng: null };
   @Prop() searchResults: MapMarker[] = [];
   @State() previousOpenedMarker: google.maps.InfoWindow = null;
   @Prop() legend: MassLegendItemType[] = [];
@@ -68,14 +68,20 @@ export class GoogleMap {
     });
   }
 
-  formatMarkerData({ id, address, lat, lng, CID, target, distance, paths, fiberReady, ethernetReady, coaxReady, wirelessReady }: MapMarker) {
+
+  
+
+  formatMarkerData({ id, address, lat, lng, CID, target, distance, paths, fiberReady, ethernetReady, coaxReady, wirelessReady, isDC, isCELL, isPOP }: MapMarker) {
     const footage = parseInt(distance) * 3280.839895;
     const feet = Math.round((footage + 0.00001) * 100) / 100;
     let servicetype = 'Delivery Options:<br>';
-    const fiber = ` <mass-icon icon-name="fiber"></mass-icon> - Fiber`;
-    const wireless = ` <mass-icon icon-name="wireless" ></mass-icon>- Wireless`;
-    const ethernet = ` <mass-icon icon-name="ethernet" ></mass-icon> - Ethernet`;
+    const fiber = ` <mass-icon icon-name="fiber"></mass-icon> - Fiber - Building`;
+    const wireless = ` <mass-icon icon-name="wireless" ></mass-icon>- Fiber - WireLess`;
+    const ethernet = ` <mass-icon icon-name="ethernet" ></mass-icon> - Fiber - Coax`;
     const coax = ` <mass-icon icon-name="coax" ></mass-icon> - Cable/Coax`;
+    const dc = ` <mass-icon icon-name="markerGreen" ></mass-icon> - Fiber - Datacenter`;
+    const cell = ` <mass-icon icon-name="markerOrange" ></mass-icon> - Fiber - Cell Site`;
+    const pop = ` <mass-icon icon-name="markerRed" ></mass-icon> - Fiber - POP`
     if (fiberReady == 1) {
       servicetype = servicetype + fiber + '<br />';
     }
@@ -88,7 +94,18 @@ export class GoogleMap {
     if (wirelessReady == 1) {
       servicetype = servicetype + wireless + '<br />';
     }
+    if(isDC == 1){
+      servicetype = servicetype + dc + '<br />';
+    }
+    if(isCELL == 1){
+      servicetype = servicetype + cell + '<br />';
+    }
+    if(isPOP == 1){
+      servicetype = servicetype + pop + '<br />';
+
+    }
     const content = `
+      <mass-icon icon-name="formLogo" style="width: 134px; height: 45px;" ></mass-icon><br/>
       <b>${address}</b> <br/> 
       <b>Distance: </b> ${feet} feet <br /><br /> 
       <b>${paths} Paths Available</b> <br /><br />

@@ -114,6 +114,7 @@ export class Icon {
         markerRed: 'http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png',
         markerWhite: `${baseUrl}wht-circle-lv.png`,
         wifi: `${baseUrl}wifi.png`,
+        formLogo: `https://res.cloudinary.com/dghsmwkfq/image/upload/v1702289962/aykvrxst0co4fmupzhx1.png`,
       };
       this.svgContent = IconSVGList[this.iconName];
       this.url = urlList[this.iconName];
