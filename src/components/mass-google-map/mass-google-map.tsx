@@ -29,10 +29,12 @@ export class GoogleMap {
   @State() markers: google.maps.Marker[] = [];
   @Prop() center: { lat: number; lng: number } = { lat: null, lng: null };
   @Prop() searchResults: MapMarker[] = [];
+  @State() previousCenterMarker: google.maps.Marker = null;
   @State() previousOpenedMarker: google.maps.InfoWindow = null;
   @Prop() legend: MassLegendItemType[] = [];
   @Prop() zoom?: number;
   @Prop() handleGetQuote?: (detail: any) => void;
+
 
   mapElement: HTMLElement;
 
@@ -58,6 +60,8 @@ export class GoogleMap {
           url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
         },
     });
+
+    
 
     this.searchResults.forEach(coord => this.addMarker(coord));
 
@@ -105,7 +109,7 @@ export class GoogleMap {
 
     }
     const content = `
-      <img src="https://res.cloudinary.com/dghsmwkfq/image/upload/v1702289962/aykvrxst0co4fmupzhx1.png" style="width: 85px; height: 35px;" /> <br/>
+      <img src="https://res.cloudinary.com/dghsmwkfq/image/upload/v1702289962/aykvrxst0co4fmupzhx1.png" style="width: 85px; height: 33px;" /> <br/>
       <b>${address}</b> <br/> 
       <b>Distance: </b> ${feet} feet <br /><br /> 
       <b>${paths} Paths Available</b> <br /><br />
@@ -135,7 +139,7 @@ export class GoogleMap {
   }
 
   addMarker(result: MapMarker) {
-    const { lat, lng, isDC, isCELL, isPOP, wirelessReady, fiberReady } = result;
+    const { lat, lng, isDC, isCELL, isPOP, wirelessReady, fiberReady, coaxReady } = result;
     let icon;
     if (isDC == 1) {
       icon = { url: 'http://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png', size: new google.maps.Size(20, 20) };
@@ -145,7 +149,10 @@ export class GoogleMap {
       icon = { url: 'http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png', size: new google.maps.Size(20, 20) };
     } else if (wirelessReady == 1 && fiberReady == 0) {
       icon = { url: 'https://maps.massivenetworks.com/images/wifi.png', size: new google.maps.Size(20, 20) };
-    } else {
+    } else if(coaxReady == 1){
+      icon = { url: 'https://maps.massivenetworks.com/images/wht-circle-lv.png', size: new google.maps.Size(20, 20) };
+    }
+    else {
       icon = { url: 'http://maps.google.com/mapfiles/kml/paddle/blu-circle-lv.png', size: new google.maps.Size(20, 20) };
     }
     const marker = new google.maps.Marker({
@@ -162,12 +169,12 @@ export class GoogleMap {
       this.previousOpenedMarker = infoWindow;
       infoWindow.open(this.map, marker);
     });
-    console.log(marker,"marker")
     this.markers.push(marker);
   }
 
   @Watch('searchResults')
   searchResultsChanged(newValue: { lat: number; lng: number }[], oldValue: { lat: number; lng: number }[]) {
+    console.log(newValue)
     if (newValue !== oldValue) {
       this.updateMapMarkers(newValue);
     }
@@ -175,10 +182,27 @@ export class GoogleMap {
 
   @Watch('center')
   centerChanged(newCenter: { lat: number; lng: number }) {
-    if (this.map && newCenter) {
+    console.log(newCenter.lat, newCenter.lng, "center");
+  
+    if (this.map && newCenter.lat != null && newCenter.lng != null) {
       this.map.setCenter(new google.maps.LatLng(newCenter.lat, newCenter.lng));
+  
+      if (this.previousCenterMarker) {
+        this.previousCenterMarker.setMap(null);
+      }
+  
+      const centerMarker = new google.maps.Marker({
+        position: new google.maps.LatLng(newCenter.lat, newCenter.lng),
+        map: this.map,
+        icon: {
+          url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+        },
+      });
+  
+      this.previousCenterMarker = centerMarker;
     }
   }
+  
 
   @Watch('zoom')
   zoomChanged(newZoom: number) {
@@ -215,6 +239,9 @@ export class GoogleMap {
 
     // Add new markers
     newsearchResults.forEach(coord => this.addMarker(coord));
+  }
+  public updateCenter(newCenter: { lat: number; lng: number }) {
+    this.center = newCenter;
   }
 
   render() {

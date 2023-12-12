@@ -66,9 +66,9 @@ export const Default: Story = {
 export const WithDefaultLocation: Story = {
   args: {
     ...defaultArgs,
-    // center: { lat: 39.9654502, lng: -105.1241617 },
-    // latitude: 39.9654502,
-    // longitude: -122.4194,
+    center: { lat: 32.9654502, lng: -122.4194 },
+    latitude: 39.9654502,
+    longitude: -122.4194,
   },
 };
 
@@ -254,9 +254,7 @@ export const WithMultipleCoordinates: Story = {
         paths: '4',
       },
     ],
-    handleGetQuote : (detail) => {
-      console.log('handleGetQuote', detail)
-    }
+    handleGetQuote : () => {}
   },
 };
 
