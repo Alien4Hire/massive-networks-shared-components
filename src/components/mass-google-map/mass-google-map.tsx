@@ -31,6 +31,14 @@ export class GoogleMap {
   @Prop() searchResults: MapMarker[] = [];
   @State() previousCenterMarker: google.maps.Marker = null;
   @State() previousOpenedMarker: google.maps.InfoWindow = null;
+  @State() customMapStyles =[
+    {
+      "featureType": "poi.business",
+      "stylers": [
+        { "visibility": "off" }
+      ]
+    }
+  ]
   @Prop() legend: MassLegendItemType[] = [];
   @Prop() zoom?: number;
   @Prop() handleGetQuote?: (detail: any) => void;
@@ -51,6 +59,7 @@ export class GoogleMap {
     this.map = new google.maps.Map(this.mapElement, {
       center: this.center,
       zoom: 4,
+      styles: this.customMapStyles
     });
     const { lat, lng } = this.center;
     new google.maps.Marker({
