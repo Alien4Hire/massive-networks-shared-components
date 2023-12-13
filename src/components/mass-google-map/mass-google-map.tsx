@@ -31,12 +31,14 @@ export class GoogleMap {
   @Prop() searchResults: MapMarker[] = [];
   @State() previousCenterMarker: google.maps.Marker = null;
   @State() previousOpenedMarker: google.maps.InfoWindow = null;
-  @State() customMapStyles = [
+  @State() customMapStyles =[
     {
       "featureType": "poi",
-      "stylers": [
-        { "visibility": "off" }
-      ]
+      "stylers": [{ "visibility": "off" }]
+    },
+    {
+      "featureType": "transit",
+      "stylers": [{ "visibility": "off" }]
     }
   ];
   @Prop() legend: MassLegendItemType[] = [];
@@ -91,7 +93,7 @@ export class GoogleMap {
     let servicetype = 'Delivery Options:<br>';
     const fiber = ` <mass-icon icon-name="markerPurple"></mass-icon> - Fiber - Building`;
     const wireless = ` <mass-icon icon-name="wifi" ></mass-icon>- Fiber - WireLess`;
-    const ethernet = ` <mass-icon icon-name="ethernet" ></mass-icon> - Fiber - Coax`;
+    const ethernet = ` <mass-icon icon-name="markerWhite" ></mass-icon> - Ethernet - Coax`;
     const coax = ` <mass-icon icon-name="coax" ></mass-icon> - Cable/Coax`;
     const dc = ` <mass-icon icon-name="markerGreen" ></mass-icon> - Fiber - Datacenter`;
     const cell = ` <mass-icon icon-name="markerOrange" ></mass-icon> - Fiber - Cell Site`;

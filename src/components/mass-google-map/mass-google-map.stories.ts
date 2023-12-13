@@ -75,7 +75,8 @@ export const WithDefaultLocation: Story = {
 export const WithMultipleCoordinates: Story = {
   args: {
     ...defaultArgs,
-    center: { lat: 34.4208305, lng: -119.6981901 },
+    center: { lat: 34.0549076 , lng: -118.242643
+    },
     searchResults: [
       {
         id: '1',
