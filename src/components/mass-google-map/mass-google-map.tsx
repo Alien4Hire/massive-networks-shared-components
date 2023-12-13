@@ -67,6 +67,7 @@ export class GoogleMap {
         map: this.map,
         icon: {
           url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+          size: new google.maps.Size(64, 64),
         },
     });
 
@@ -158,10 +159,11 @@ export class GoogleMap {
       icon = { url: 'http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png', size: new google.maps.Size(20, 20) };
     } else if (wirelessReady == 1 && fiberReady == 0) {
       icon = { url: 'https://maps.massivenetworks.com/images/wifi.png', size: new google.maps.Size(20, 20) };
+    } else if(fiberReady == 1){
+      icon = { url: 'http://maps.google.com/mapfiles/kml/paddle/blu-circle-lv.png', size: new google.maps.Size(20, 20) };
     } else if(coaxReady == 1){
       icon = { url: 'https://maps.massivenetworks.com/images/wht-circle-lv.png', size: new google.maps.Size(20, 20) };
-    }
-    else {
+    } else {
       icon = { url: 'http://maps.google.com/mapfiles/kml/paddle/blu-circle-lv.png', size: new google.maps.Size(20, 20) };
     }
     const marker = new google.maps.Marker({
@@ -205,6 +207,7 @@ export class GoogleMap {
         map: this.map,
         icon: {
           url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+          size: new google.maps.Size(64, 64),
         },
       });
   
