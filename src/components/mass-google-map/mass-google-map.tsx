@@ -31,14 +31,14 @@ export class GoogleMap {
   @Prop() searchResults: MapMarker[] = [];
   @State() previousCenterMarker: google.maps.Marker = null;
   @State() previousOpenedMarker: google.maps.InfoWindow = null;
-  @State() customMapStyles =[
+  @State() customMapStyles = [
     {
-      "featureType": "poi.business",
+      "featureType": "poi",
       "stylers": [
         { "visibility": "off" }
       ]
     }
-  ]
+  ];
   @Prop() legend: MassLegendItemType[] = [];
   @Prop() zoom?: number;
   @Prop() handleGetQuote?: (detail: any) => void;
