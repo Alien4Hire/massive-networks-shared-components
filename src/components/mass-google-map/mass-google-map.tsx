@@ -59,7 +59,7 @@ export class GoogleMap {
     });
 
     this.map = new google.maps.Map(this.mapElement, {
-      center: this.center,
+      center: this.center || { lat: 37.9277412, lng: -122.0589753 },
       zoom: 4,
       styles: this.customMapStyles
     });
