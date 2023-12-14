@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property         | Attribute | Description | Type                            | Default                    |
-| ---------------- | --------- | ----------- | ------------------------------- | -------------------------- |
-| `center`         | --        |             | `{ lat: number; lng: number; }` | `{ lat: null, lng: null }` |
-| `handleGetQuote` | --        |             | `(detail: any) => void`         | `undefined`                |
-| `legend`         | --        |             | `MassLegendItemType[]`          | `[]`                       |
-| `searchResults`  | --        |             | `MapMarker[]`                   | `[]`                       |
-| `zoom`           | `zoom`    |             | `number`                        | `undefined`                |
+| Property         | Attribute | Description | Type                            | Default                                  |
+| ---------------- | --------- | ----------- | ------------------------------- | ---------------------------------------- |
+| `center`         | --        |             | `{ lat: number; lng: number; }` | `{ lat: 37.9277412, lng: -122.0589753 }` |
+| `handleGetQuote` | --        |             | `(detail: any) => void`         | `undefined`                              |
+| `legend`         | --        |             | `MassLegendItemType[]`          | `[]`                                     |
+| `searchResults`  | --        |             | `MapMarker[]`                   | `[]`                                     |
+| `zoom`           | `zoom`    |             | `number`                        | `undefined`                              |
 
 
 ## Dependencies

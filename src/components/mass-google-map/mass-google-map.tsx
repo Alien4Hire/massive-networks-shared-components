@@ -27,11 +27,11 @@ export type MapMarker = {
 export class GoogleMap {
   @State() map: google.maps.Map;
   @State() markers: google.maps.Marker[] = [];
-  @Prop() center: { lat: number; lng: number } = { lat: null, lng: null };
+  @Prop() center: { lat: number; lng: number } = { lat: 37.9277412, lng: -122.0589753 };
   @Prop() searchResults: MapMarker[] = [];
   @State() previousCenterMarker: google.maps.Marker = null;
   @State() previousOpenedMarker: google.maps.InfoWindow = null;
-  @State() customMapStyles =[
+  @State() customMapStyles = [
     {
       "featureType": "poi",
       "stylers": [{ "visibility": "off" }]
@@ -59,21 +59,23 @@ export class GoogleMap {
     });
 
     this.map = new google.maps.Map(this.mapElement, {
-      center: this.center || { lat: 37.9277412, lng: -122.0589753 },
+      center: this.center,
       zoom: 4,
       styles: this.customMapStyles
     });
     const { lat, lng } = this.center;
-    new google.maps.Marker({
+    if (this.searchResults.length) {
+      new google.maps.Marker({
         position: new google.maps.LatLng(lat, lng),
         map: this.map,
         icon: {
           url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
           size: new google.maps.Size(64, 64),
         },
-    });
+      });
+    }
 
-    
+
 
     this.searchResults.forEach(coord => this.addMarker(coord));
 
@@ -85,7 +87,7 @@ export class GoogleMap {
   }
 
 
-  
+
 
   formatMarkerData({ id, address, lat, lng, CID, target, distance, paths, fiberReady, ethernetReady, coaxReady, wirelessReady, isDC, isCELL, isPOP }: MapMarker) {
     const footage = parseInt(distance) * 3280.839895;
@@ -110,13 +112,13 @@ export class GoogleMap {
     if (wirelessReady == 1) {
       servicetype = servicetype + wireless + '<br />';
     }
-    if(isDC == 1){
+    if (isDC == 1) {
       servicetype = servicetype + dc + '<br />';
     }
-    if(isCELL == 1){
+    if (isCELL == 1) {
       servicetype = servicetype + cell + '<br />';
     }
-    if(isPOP == 1){
+    if (isPOP == 1) {
       servicetype = servicetype + pop + '<br />';
 
     }
@@ -161,9 +163,9 @@ export class GoogleMap {
       icon = { url: 'http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png', size: new google.maps.Size(20, 20) };
     } else if (wirelessReady == 1 && fiberReady == 0) {
       icon = { url: 'https://maps.massivenetworks.com/images/wifi.png', size: new google.maps.Size(20, 20) };
-    } else if(fiberReady == 1){
+    } else if (fiberReady == 1) {
       icon = { url: 'http://maps.google.com/mapfiles/kml/paddle/blu-circle-lv.png', size: new google.maps.Size(20, 20) };
-    } else if(coaxReady == 1){
+    } else if (coaxReady == 1) {
       icon = { url: 'https://maps.massivenetworks.com/images/wht-circle-lv.png', size: new google.maps.Size(20, 20) };
     } else {
       icon = { url: 'http://maps.google.com/mapfiles/kml/paddle/blu-circle-lv.png', size: new google.maps.Size(20, 20) };
@@ -177,7 +179,7 @@ export class GoogleMap {
       const infoWindow = new google.maps.InfoWindow({
         content: this.formatMarkerData(result),
       });
-      if(this.previousOpenedMarker?.close)
+      if (this.previousOpenedMarker?.close)
         this.previousOpenedMarker.close()
       this.previousOpenedMarker = infoWindow;
       infoWindow.open(this.map, marker);
@@ -196,14 +198,14 @@ export class GoogleMap {
   @Watch('center')
   centerChanged(newCenter: { lat: number; lng: number }) {
     console.log(newCenter.lat, newCenter.lng, "center");
-  
+
     if (this.map && newCenter.lat != null && newCenter.lng != null) {
       this.map.setCenter(new google.maps.LatLng(newCenter.lat, newCenter.lng));
-  
+
       if (this.previousCenterMarker) {
         this.previousCenterMarker.setMap(null);
       }
-  
+
       const centerMarker = new google.maps.Marker({
         position: new google.maps.LatLng(newCenter.lat, newCenter.lng),
         map: this.map,
@@ -212,11 +214,11 @@ export class GoogleMap {
           size: new google.maps.Size(64, 64),
         },
       });
-  
+
       this.previousCenterMarker = centerMarker;
     }
   }
-  
+
 
   @Watch('zoom')
   zoomChanged(newZoom: number) {
