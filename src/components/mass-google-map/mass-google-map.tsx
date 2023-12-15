@@ -18,6 +18,7 @@ export type MapMarker = {
   paths?: number;
   ethernetReady?: number;
   coaxReady?: number;
+  selected?: boolean;
 };
 @Component({
   tag: 'mass-google-map',
@@ -153,7 +154,7 @@ export class GoogleMap {
   }
 
   addMarker(result: MapMarker) {
-    const { lat, lng, isDC, isCELL, isPOP, wirelessReady, fiberReady, coaxReady } = result;
+    const { lat, lng, isDC, isCELL, isPOP, wirelessReady, fiberReady, coaxReady, selected } = result;
     let icon;
     if (isDC == 1) {
       icon = { url: 'http://maps.google.com/mapfiles/kml/paddle/grn-circle-lv.png', size: new google.maps.Size(20, 20) };
@@ -175,6 +176,15 @@ export class GoogleMap {
       map: this.map,
       icon,
     });
+    if(selected){
+      const infoWindow = new google.maps.InfoWindow({
+        content: this.formatMarkerData(result),
+      });
+      if (this.previousOpenedMarker?.close)
+        this.previousOpenedMarker.close()
+      this.previousOpenedMarker = infoWindow;
+      infoWindow.open(this.map, marker);
+    }
     marker.addListener('click', () => {
       const infoWindow = new google.maps.InfoWindow({
         content: this.formatMarkerData(result),

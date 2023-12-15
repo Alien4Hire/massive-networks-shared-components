@@ -99,6 +99,7 @@ export const WithMultipleCoordinates: Story = {
         target: '1',
         lit: '1',
         paths: '4',
+        selected: true,
       },
       {
         id: '1',
@@ -253,6 +254,7 @@ export const WithMultipleCoordinates: Story = {
         target: '1',
         lit: '1',
         paths: '4',
+        selected:true
       },
     ],
     handleGetQuote : () => {}
