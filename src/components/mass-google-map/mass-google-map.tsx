@@ -250,9 +250,9 @@ export class GoogleMap {
       case 1:
         return 15;
       case 0.5:
-        return 16;
+        return 23;
       case 0.3:
-        return 17;
+        return 26;
       default:
         return 8;
     }
